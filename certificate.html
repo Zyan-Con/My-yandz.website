@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates & Achievements - Yandz.id</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @view-transition { navigation: auto; }
+    </style>
+</head>
+
+<body class="cert-page-body">
+    <!-- PROGRESS & PAGE TRANSITION -->
+    <!-- ===================================================
+         AESTHETIC CYBER-APERTURE PRELOADER
+    =================================================== -->
+    <div class="cyber-preloader" id="cyberPreloader" aria-hidden="true">
+        <!-- Tirai Atas & Bawah yang Membelah Terbuka -->
+        <div class="shutter-panel panel-top"></div>
+        <div class="shutter-panel panel-bottom"></div>
+
+        <!-- Panggung Visual di Tengah -->
+        <div class="preloader-stage">
+            <!-- Lingkaran Geometris Berputar -->
+            <div class="preloader-ring-wrap">
+                <div class="ring-outer-dashed"></div>
+                <div class="ring-inner-glow"></div>
+                <span class="preloader-symbol">Y</span>
+            </div>
+
+            <!-- Angka Counter & Brand Monospace -->
+            <div class="preloader-info-row">
+                <span class="preloader-brand">YANDZ.ID</span>
+                <span class="preloader-sep">•</span>
+                <span class="preloader-counter" id="preloaderCounter">000</span>
+            </div>
+
+            <!-- Status Teks Mengetik -->
+            <div class="preloader-status-row">
+                <span class="pulse-dot-cyan"></span>
+                <span id="preloaderStatusText">INITIALIZING RUNTIME</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-progress"></div>
+    <div class="custom-cursor"></div>
+
+    <!-- ===================================================
+         HEADER UNIVERSAL
+    =================================================== -->
+    <header class="main-header">
+        <div class="header-brand-wrap">
+            <a href="index.html" class="logo glitch-logo" data-text="Yandz.id">Yandz<span>.id</span></a>
+            <div class="header-hiring-badge">
+                <span class="pulse-dot"></span>
+                <span data-i18n="footer_available">Available for Hire</span>
+            </div>
+        </div>
+
+        <nav class="desktop-nav-menu" aria-label="Desktop Navigation">
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="about.html" data-i18n="nav_about">About</a>
+            <a href="projects.html" data-i18n="nav_projects">Projects</a>
+            <a href="certificate.html" class="active" data-i18n="nav_cert">Certificates</a>
+            <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <div class="desktop-lang-switcher">
+                <button onclick="setLanguage('id')" class="lang-pill" data-lang="id">ID</button>
+                <button onclick="setLanguage('en')" class="lang-pill" data-lang="en">EN</button>
+                <button onclick="setLanguage('ja')" class="lang-pill" data-lang="ja">JA</button>
+            </div>
+            <button class="header-theme-btn" onclick="toggleTheme()" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button class="menu-btn magnetic" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SIDE MENU MOBILE -->
+    <nav id="sideMenu">
+        <a href="index.html" class="magnetic" data-i18n="nav_home"><span class="menu-num">01</span> Home</a>
+        <a href="about.html" class="magnetic" data-i18n="nav_about"><span class="menu-num">02</span> About</a>
+        <a href="projects.html" class="magnetic" data-i18n="nav_projects"><span class="menu-num">03</span> Projects</a>
+        <a href="certificate.html" class="magnetic active" data-i18n="nav_cert"><span class="menu-num">04</span> Certificate</a>
+        <a href="contact.html" class="magnetic" data-i18n="nav_contact"><span class="menu-num">05</span> Contact</a>
+    </nav>
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- ===================================================
+         01. CERTIFICATES HERO BANNER
+    =================================================== -->
+    <section class="cert-hero-banner run-item">
+        <div class="cert-hero-container">
+            <span class="cert-breadcrumb">Home / <strong style="color: var(--accent-orange);">Credentials Archive</strong></span>
+            <span class="cert-hero-badge" data-i18n="cert_page_badge"><i class="fa-solid fa-award"></i> Verified Credentials</span>
+            <h1 class="cert-hero-title" data-i18n="cert_archive_title">Certificates & Achievements</h1>
+            <p class="cert-hero-desc" data-i18n="cert_archive_desc">
+                Dokumentasi resmi penguasaan ilmu komputer, pemrograman web, algoritma sains, dan pengakuan kepemimpinan tingkat nasional maupun global.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===================================================
+         02. CERTIFICATES CATALOG & FILTER
+    =================================================== -->
+    <main class="cert-catalog-section run-item">
+        <div class="cert-catalog-container">
+            
+            <!-- Filter Pills -->
+            <div class="cert-filter-bar">
+                <div class="cert-pills-list">
+                    <button class="cert-pill active" onclick="filterCertificates('all', this)" data-i18n="cert_filter_all">All</button>
+                    <button class="cert-pill" onclick="filterCertificates('code', this)" data-i18n="cert_filter_code">Coding & CS</button>
+                    <button class="cert-pill" onclick="filterCertificates('award', this)" data-i18n="cert_filter_awards">Awards & Leadership</button>
+                    <button class="cert-pill" onclick="filterCertificates('competition', this)" data-i18n="cert_filter_comp">Competitions</button>
+                </div>
+                <div class="cert-counter-tag">
+                    Showing <strong id="certVisibleCount">5</strong> Verified Credentials
+                </div>
+            </div>
+
+            <!-- GRID KARTU SERTIFIKAT -->
+            <div class="cert-cards-grid" id="certGridContainer">
+                
+                <!-- CERTIFICATE 1: CSS SOLOLEARN -->
+                <div class="cert-modern-card" data-category="code" onclick="openCertModal('images/certificate/image.png','Introduction to CSS')">
+                    <div class="cert-card-media">
+                        <img src="images/certificate/image.png" alt="Introduction to CSS">
+                        <div class="cert-media-overlay">
+                            <span><i class="fa-solid fa-expand"></i> Zoom</span>
+                        </div>
+                        <span class="cert-category-badge badge-code">Web Tech</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <div class="cert-issuer-row">
+                            <span class="issuer-name"><i class="fa-solid fa-certificate"></i> SoloLearn</span>
+                            <span class="issuer-year">2024</span>
+                        </div>
+                        <h3 class="cert-card-title">Introduction to CSS</h3>
+                        <p class="cert-card-text">Penguasaan dasar penataan visual web, layout model, transisi, dan responsivitas UI modern.</p>
+                        <button class="cert-card-action" data-i18n="cert_view_btn">
+                            View Full Certificate ➔
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATE 2: DUTA INSPIRASI -->
+                <div class="cert-modern-card" data-category="award" onclick="openCertModal('images/certificate/duta-inspirasi.jpeg','Sertifikat Penghargaan Duta Inspirasi Indonesia')">
+                    <div class="cert-card-media">
+                        <img src="images/certificate/duta-inspirasi.jpeg" alt="Duta Inspirasi">
+                        <div class="cert-media-overlay">
+                            <span><i class="fa-solid fa-expand"></i> Zoom</span>
+                        </div>
+                        <span class="cert-category-badge badge-award">National Award</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <div class="cert-issuer-row">
+                            <span class="issuer-name"><i class="fa-solid fa-award"></i> Duta Inspirasi ID</span>
+                            <span class="issuer-year">2026</span>
+                        </div>
+                        <h3 class="cert-card-title">Penghargaan Duta Inspirasi Indonesia</h3>
+                        <p class="cert-card-text">Penghargaan nasional atas kontribusi aktif, inspirasi pemuda, dan kepemimpinan digital.</p>
+                        <button class="cert-card-action" data-i18n="cert_view_btn">
+                            View Full Certificate ➔
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATE 3: CS50P PYTHON HARVARD -->
+                <div class="cert-modern-card" data-category="code" onclick="openCertModal('images/certificate/harvard.jpeg','CS50P: Introduction to Programming with Python')">
+                    <div class="cert-card-media">
+                        <img src="images/certificate/harvard.jpeg" alt="CS50P HarvardX">
+                        <div class="cert-media-overlay">
+                            <span><i class="fa-solid fa-expand"></i> Zoom</span>
+                        </div>
+                        <span class="cert-category-badge badge-code">HarvardX</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <div class="cert-issuer-row">
+                            <span class="issuer-name"><i class="fa-solid fa-graduation-cap"></i> HarvardX / Harvard Univ</span>
+                            <span class="issuer-year">2024</span>
+                        </div>
+                        <h3 class="cert-card-title">CS50P: Programming with Python</h3>
+                        <p class="cert-card-text">Kurikulum ketat mengenai struktur data, algoritma, penanganan exception, dan pemrograman berorientasi objek.</p>
+                        <button class="cert-card-action" data-i18n="cert_view_btn">
+                            View Full Certificate ➔
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATE 4: PUSKANAS ENGLISH COMPETITION -->
+                <div class="cert-modern-card" data-category="competition" onclick="openCertModal('images/certificate/puskanas 1.jpeg','National English Science Competition')">
+                    <div class="cert-card-media">
+                        <img src="images/certificate/puskanas 1.jpeg" alt="Puskanas English Competition">
+                        <div class="cert-media-overlay">
+                            <span><i class="fa-solid fa-expand"></i> Zoom</span>
+                        </div>
+                        <span class="cert-category-badge badge-comp">Competition</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <div class="cert-issuer-row">
+                            <span class="issuer-name"><i class="fa-solid fa-medal"></i> Puskanas</span>
+                            <span class="issuer-year">2025</span>
+                        </div>
+                        <h3 class="cert-card-title">National English Science Competition</h3>
+                        <p class="cert-card-text">Peserta aktif kompetisi bahasa Inggris tingkat nasional dalam konteks sains dan nalar akademis.</p>
+                        <button class="cert-card-action" data-i18n="cert_view_btn">
+                            View Full Certificate ➔
+                        </button>
+                    </div>
+                </div>
+
+                 <!-- CERTIFICATE 5: HTML Sololearn -->
+                <div class="cert-modern-card" data-category="code" onclick="openCertModal('images/certificate/sololearn.jpeg','certificate completed the course introduce html')">
+                    <div class="cert-card-media">
+                        <img src="images/certificate/sololearn.jpeg" alt="Duta Inspirasi">
+                        <div class="cert-media-overlay">
+                            <span><i class="fa-solid fa-expand"></i> Zoom</span>
+                        </div>
+                        <span class="cert-category-badge badge-code">Web Tech </span>
+                    </div>
+                    <div class="cert-card-body">
+                        <div class="cert-issuer-row">
+                            <span class="issuer-name"><i class="fa-solid fa-award"></i> Sololearn </span>
+                            <span class="issuer-year">2024</span>
+                        </div>
+                        <h3 class="cert-card-title">Certificate of Introduce HTML</h3>
+                        <p class="cert-card-text">certificate about completed this course and questions about HTML. </p>
+                        <button class="cert-card-action" data-i18n="cert_view_btn">
+                            View Full Certificate ➔
+                        </button>
+                    </div>
+                </div>
+
+                 <!-- CERTIFICATE 6: English EFE -->
+                <div class="cert-modern-card" data-category="award" onclick="openCertModal('images/certificate/efe.jpeg','certificate EFE Academy')">
+                    <div class="cert-card-media">
+                        <img src="images/certificate/efe.jpeg" alt="Duta Inspirasi">
+                        <div class="cert-media-overlay">
+                            <span><i class="fa-solid fa-expand"></i> Zoom</span>
+                        </div>
+                        <span class="cert-category-badge badge-award">English Award</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <div class="cert-issuer-row">
+                            <span class="issuer-name"><i class="fa-solid fa-award"></i> EFE Course </span>
+                            <span class="issuer-year">2025</span>
+                        </div>
+                        <h3 class="cert-card-title">Finished English EFE COurse </h3>
+                        <p class="cert-card-text">National Reward about english course and Passed The Exam For EFE Exams</p>
+                        <button class="cert-card-action" data-i18n="cert_view_btn">
+                            View Full Certificate ➔
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATE 7: PUSKANAS INFORMATIKA -->
+                <div class="cert-modern-card" data-category="competition code" onclick="openCertModal('images/certificate/puskanas 2.jpeg','National Informatika Science Competition')">
+                    <div class="cert-card-media">
+                        <img src="images/certificate/puskanas 2.jpeg" alt="Puskanas Informatika">
+                        <div class="cert-media-overlay">
+                            <span><i class="fa-solid fa-expand"></i> Zoom</span>
+                        </div>
+                        <span class="cert-category-badge badge-comp">Competition</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <div class="cert-issuer-row">
+                            <span class="issuer-name"><i class="fa-solid fa-laptop-code"></i> Puskanas</span>
+                            <span class="issuer-year">2025</span>
+                        </div>
+                        <h3 class="cert-card-title">National Informatika Science Competition</h3>
+                        <p class="cert-card-text">Uji kompetensi informatika, logika komputasi, dan pemahaman dasar rekayasa sistem komputer.</p>
+                        <button class="cert-card-action" data-i18n="cert_view_btn">
+                            View Full Certificate ➔
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATE 8: EFE 2 -->
+                <div class="cert-modern-card" data-category="competition code" onclick="openCertModal('images/certificate/efe2.jpeg','certificate of EFE Academy')">
+                    <div class="cert-card-media">
+                        <img src="images/certificate/efe2.jpeg" alt="Puskanas Informatika">
+                        <div class="cert-media-overlay">
+                            <span><i class="fa-solid fa-expand"></i> Zoom</span>
+                        </div>
+                        <span class="cert-category-badge badge-award">English Award</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <div class="cert-issuer-row">
+                            <span class="issuer-name"><i class="fa-solid fa-laptop-code"></i> Puskanas</span>
+                            <span class="issuer-year">2025</span>
+                        </div>
+                        <h3 class="cert-card-title">Completed EFE Course</h3>
+                        <p class="cert-card-text">Rewards for completed this academy and passed the exam </p>
+                        <button class="cert-card-action" data-i18n="cert_view_btn">
+                            View Full Certificate ➔
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATE 9: Learning X -->
+
+                <div class="cert-modern-card" data-category="code" onclick="openCertModal('images/certificate/learningx.jpeg','certificate of completed the course')">
+                    <div class="cert-card-media">
+                        <img src="images/certificate/learningx.jpeg" alt="Puskanas Informatika">
+                        <div class="cert-media-overlay">
+                            <span><i class="fa-solid fa-expand"></i> Zoom</span>
+                        </div>
+                        <span class="cert-category-badge badge-award">Learning X Rewarded/span>
+                    </div>
+                    <div class="cert-card-body">
+                        <div class="cert-issuer-row">
+                            <span class="issuer-name"><i class="fa-solid fa-laptop-code"></i> Learning X</span>
+                            <span class="issuer-year">2025</span>
+                        </div>
+                        <h3 class="cert-card-title">National Course Coding </h3>
+                        <p class="cert-card-text">Rewarded of Learning X;
+                            </br>
+                            About Tailwind.CSS, React, JS and more.
+                        </p>
+                        <button class="cert-card-action" data-i18n="cert_view_btn">
+                            View Full Certificate ➔
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===================================================
+         UNIVERSAL AVO SAAS FOOTER (FINAL & SERAGAM)
+    =================================================== -->
+    <footer class="avo-footer">
+        <div class="avo-container">
+
+            <div class="avo-cta-banner">
+                <div class="avo-cta-left">
+                    <span class="avo-sub-tag" data-i18n="avo_sub_tag">START A PROJECT • FAST & TRANSPARENT PROCESS</span>
+                    <h2 class="avo-cta-title" data-i18n="avo_cta_title">Start building with Yanda today.</h2>
+                    <p class="avo-cta-subtext" data-i18n="avo_cta_subtext">Punya ide aplikasi, butuh backend Laravel yang kokoh, atau integrasi AI? Mari diskusikan solusinya bersama.</p>
+                    
+                    <form class="avo-input-wrap" onsubmit="handleAvoContact(event)">
+                        <input type="text" id="avoQuickInput" placeholder="Ketik pesan singkat atau ide proyek kamu..." required>
+                        <button type="submit" aria-label="Send direct message">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="avo-direct-card">
+                    <div class="direct-card-header">
+                        <span class="direct-live-pill"><span class="dot-online"></span> <span data-i18n="direct_live_status">OPEN TO WORK</span></span>
+                        <span class="direct-tz"><i class="fa-regular fa-clock"></i> UTC+7 (WIB)</span>
+                    </div>
+
+                    <div class="direct-metrics-list">
+                        <div class="direct-metric-item">
+                            <span class="dm-label">ESTIMATED RESPONSE</span>
+                            <span class="dm-val" data-i18n="direct_est_response">⚡ &lt; 30 Mins (Fast Reply)</span>
+                        </div>
+                        <div class="direct-metric-item">
+                            <span class="dm-label">WORK PREFERENCE</span>
+                            <span class="dm-val" data-i18n="direct_work_pref">💼 Remote / Contract / Freelance</span>
+                        </div>
+                        <div class="direct-metric-item">
+                            <span class="dm-label">CORE FOCUS</span>
+                            <span class="dm-val" data-i18n="direct_core_focus">🛠️ Laravel, React, APIs & AI</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/62831833822530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." target="_blank" class="direct-wa-action">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span data-i18n="direct_btn_wa">Chat via WhatsApp Langsung</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="avo-columns-grid">
+                <div class="avo-col avo-col-brand">
+                    <a href="index.html" class="avo-brand-logo">Yandz<span>.id</span></a>
+                    <p class="avo-brand-desc" data-i18n="footer_tagline">
+                        Full-Stack Developer crafting scalable web applications, robust Laravel architectures, and AI integrations.
+                    </p>
+                </div>
+
+                <div class="avo-col">
+                    <h4 class="avo-col-heading" data-i18n="footer_nav_title">Navigation</h4>
+                    <ul class="avo-links-list">
+                        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">About Me</a></li>
+                        <li><a href="projects.html" data-i18n="nav_projects">Projects</a></li>
+                        <li><a href="certificate.html" data-i18n="nav_cert">Certificates</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="avo-col">
+                    <h4 class="avo-col-heading">Status & Stack</h4>
+                    <ul class="avo-links-list">
+                        <li><span class="avo-status-dot"></span> <span data-i18n="footer_available">Available for Projects</span></li>
+                        <li><a href="https://github.com/Zyan-Con" target="_blank">Ex-Intern @ Garuda Cyber</a></li>
+                        <li><a href="about.html">Arch Linux Environment</a></li>
+                        <li><span id="avoLiveTime">--:--:-- WIB</span></li>
+                    </ul>
+                </div>
+
+                <div class="avo-col avo-col-chat">
+                    <h4 class="avo-col-heading" data-i18n="footer_contact_title">Let's chat!</h4>
+                    <a href="mailto:zoliandaalmaghribi@gmail.com" class="avo-contact-text">zoliandaalmaghribi@gmail.com</a>
+                    <a href="https://wa.me/62831833822530" target="_blank" class="avo-contact-text">+62 831-8338-22530</a>
+
+                    <div class="avo-social-icons">
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Zyan-Con" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://wa.me/62831833822530" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="avo-bottom-bar">
+                <p>&copy; 2026 <strong>Yandz.id</strong> (Zolianda Al Maghribi). All rights reserved.</p>
+                <div class="avo-bottom-meta">
+                    <span data-i18n="footer_passion">Designed with Precision</span>
+                    <span>•</span>
+                    <span>Tangerang, Indonesia</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- MOBILE BOTTOM DOCK -->
+    <nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
+        <a href="index.html" class="dock-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="about.html" class="dock-item">
+            <i class="fa-solid fa-user"></i>
+            <span>About</span>
+        </a>
+        <a href="projects.html" class="dock-item">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Projects</span>
+        </a>
+        <a href="https://wa.me/62831833822530" target="_blank" class="dock-item wa-highlight">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Chat</span>
+        </a>
+    </nav>
+
+    <!-- FLOATING ACTIONS & CHATBOT -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+    <a href="https://wa.me/62831833822530" target="_blank" class="floating-wa-btn"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <div class="chat-widget">
+        <button class="chat-toggle" onclick="toggleChat()"><i class="fa-solid fa-comment-dots"></i></button>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <span>Chat with Yanda's Assistant</span>
+                <button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-bubble bot">Hi! Ask me about Yanda's certificates, education, or background 👋</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Type a question..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP PREVIEW SERTIFIKAT -->
+    <div class="cert-modal" id="certModal" aria-hidden="true">
+        <div class="modal-overlay" onclick="closeCertModal()"></div>
+        <div class="cert-modal-content" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
+            <button class="modal-close" onclick="closeCertModal()" aria-label="Close certificate"><i class="fa-solid fa-xmark"></i></button>
+            <div class="cert-seal"><i class="fa-solid fa-award"></i></div>
+            <span class="cert-label">Certificate of Achievement</span>
+            <img id="certModalImage" src="" alt="Certificate Large Preview">
+            <h3 id="certModalTitle"></h3>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

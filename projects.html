@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Archive - Yandz.id</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @view-transition { navigation: auto; }
+    </style>
+</head>
+
+<body class="projects-page-body">
+    <!-- ===================================================
+         AESTHETIC CYBER-APERTURE PRELOADER
+    =================================================== -->
+    <div class="cyber-preloader" id="cyberPreloader" aria-hidden="true">
+        <!-- Tirai Atas & Bawah yang Membelah Terbuka -->
+        <div class="shutter-panel panel-top"></div>
+        <div class="shutter-panel panel-bottom"></div>
+
+        <!-- Panggung Visual di Tengah -->
+        <div class="preloader-stage">
+            <!-- Lingkaran Geometris Berputar -->
+            <div class="preloader-ring-wrap">
+                <div class="ring-outer-dashed"></div>
+                <div class="ring-inner-glow"></div>
+                <span class="preloader-symbol">Y</span>
+            </div>
+
+            <!-- Angka Counter & Brand Monospace -->
+            <div class="preloader-info-row">
+                <span class="preloader-brand">YANDZ.ID</span>
+                <span class="preloader-sep">•</span>
+                <span class="preloader-counter" id="preloaderCounter">000</span>
+            </div>
+
+            <!-- Status Teks Mengetik -->
+            <div class="preloader-status-row">
+                <span class="pulse-dot-cyan"></span>
+                <span id="preloaderStatusText">INITIALIZING RUNTIME</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-progress"></div>
+    <div class="custom-cursor"></div>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-brand-wrap">
+            <a href="index.html" class="logo glitch-logo" data-text="Yandz.id">Yandz<span>.id</span></a>
+            <div class="header-hiring-badge">
+                <span class="pulse-dot"></span>
+                <span data-i18n="footer_available">Available for Hire</span>
+            </div>
+        </div>
+
+        <nav class="desktop-nav-menu">
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="about.html" data-i18n="nav_about">About</a>
+            <a href="projects.html" class="active" data-i18n="nav_projects">Projects</a>
+            <a href="certificate.html" data-i18n="nav_cert">Certificates</a>
+            <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <div class="desktop-lang-switcher">
+                <button onclick="setLanguage('id')" class="lang-pill" data-lang="id">ID</button>
+                <button onclick="setLanguage('en')" class="lang-pill" data-lang="en">EN</button>
+                <button onclick="setLanguage('ja')" class="lang-pill" data-lang="ja">JA</button>
+            </div>
+            <button class="header-theme-btn" onclick="toggleTheme()" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button class="menu-btn magnetic" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SIDE MENU MOBILE -->
+    <nav id="sideMenu">
+        <a href="index.html" class="magnetic" data-i18n="nav_home"><span class="menu-num">01</span> Home</a>
+        <a href="about.html" class="magnetic" data-i18n="nav_about"><span class="menu-num">02</span> About</a>
+        <a href="projects.html" class="magnetic active" data-i18n="nav_projects"><span class="menu-num">03</span> Projects</a>
+        <a href="certificate.html" class="magnetic" data-i18n="nav_cert"><span class="menu-num">04</span> Certificate</a>
+        <a href="contact.html" class="magnetic" data-i18n="nav_contact"><span class="menu-num">05</span> Contact</a>
+    </nav>
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- 01. HERO BANNER -->
+    <section class="proj-hero-banner run-item">
+        <div class="proj-hero-container">
+            <div class="proj-hero-left">
+                <span class="proj-breadcrumb" data-i18n="proj_breadcrumb">Home / <strong style="color: var(--accent-orange);">Projects Archive</strong></span>
+                <h1 class="proj-hero-title" data-i18n="proj_hero_title">Our Work. <br><span>Your Vision Realized.</span></h1>
+                <p class="proj-hero-desc" data-i18n="proj_hero_desc">
+                    Setiap baris kode menceritakan perjalanan dedikasi rekayasa perangkat lunak. Dari sistem backend enterprise, web aplikasi offline-first, hingga eksplorasi model AI.
+                </p>
+                <div class="proj-hero-cta">
+                    <a href="#completed-projects" class="proj-btn-primary" data-i18n="proj_btn_explore">Explore All Projects ↓</a>
+                    <a href="contact.html" class="proj-btn-ghost" data-i18n="proj_btn_start">Start a Project</a>
+                </div>
+            </div>
+
+            <!-- Kolase Foto Asimetris -->
+            <div class="proj-hero-collage" aria-hidden="true">
+                <div class="collage-main-card">
+                    <img src="images/image copy.png" alt="Architecture">
+                    <div class="collage-tag">Featured Architecture</div>
+                </div>
+                <div class="collage-sub-row">
+                    <div class="collage-sub-card"><img src="images/WhatsApp Image 2026-07-30 at 14.21.21.jpeg" alt="Workspace"></div>
+                    <div class="collage-sub-card"><img src="images/profile.jpg" alt="Developer Life"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. CATALOG GRID -->
+    <section id="completed-projects" class="proj-main-catalog run-item">
+        <div class="proj-catalog-container">
+            <div class="catalog-top-header">
+                <div class="cat-header-left">
+                    <span class="catalog-sub-badge" data-i18n="catalog_badge"><i class="fa-solid fa-square"></i> Complete Portfolio</span>
+                    <h2 class="catalog-title" data-i18n="catalog_title">Discover Completed Projects</h2>
+                </div>
+                <div class="cat-header-right">
+                    <p data-i18n="catalog_desc">Setiap proyek diuji dengan standar performa tinggi, modularitas MVC, dan keamanan data.</p>
+                </div>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="catalog-filter-bar">
+                <div class="filter-pills-list">
+                    <button class="cat-pill active" onclick="filterCatalog('all', this)" data-i18n="filter_all">All</button>
+                    <button class="cat-pill" onclick="filterCatalog('fullstack', this)" data-i18n="filter_fullstack">Full-Stack</button>
+                    <button class="cat-pill" onclick="filterCatalog('frontend', this)" data-i18n="filter_frontend">Frontend</button>
+                    <button class="cat-pill" onclick="filterCatalog('backend', this)" data-i18n="filter_backend">Backend</button>
+                    <button class="cat-pill" onclick="filterCatalog('ai', this)" data-i18n="filter_ai">AI & Python</button>
+                    <button class="cat-pill" onclick="filterCatalog('solo', this)" data-i18n="filter_solo">Solo Projects</button>
+                    <button class="cat-pill" onclick="filterCatalog('team', this)" data-i18n="filter_team">Team / Duo</button>
+                </div>
+                <div class="catalog-counter-tag">
+                    Showing <strong id="visibleCount">6</strong> Projects
+                </div>
+            </div>
+
+            <!-- Grid Kartu Proyek -->
+            <div class="catalog-cards-grid" id="projectsCatalogGrid">
+                
+                <!-- 1. Anime Chronicle -->
+                <div class="catalog-card" data-category="fullstack offline solo">
+                    <div class="card-thumb-wrap">
+                        <img src="images/image copy.png" alt="Anime Chronicle">
+                        <span class="card-role-badge badge-solo" data-i18n="badge_solo"><i class="fa-solid fa-user"></i> Solo Project</span>
+                        <span class="card-photos-count" onclick="openProjectGallery('anime')"><i class="fa-solid fa-images"></i> 4 Photos</span>
+                    </div>
+                    <div class="card-body-wrap">
+                        <h3 class="card-project-title">Anime Chronicle Web App</h3>
+                        <p class="card-project-desc">Katalog anime interaktif berbasis IndexedDB offline-first dengan UI 3D Book.</p>
+                        <div class="card-meta-row">
+                            <span><i class="fa-solid fa-layer-group"></i> IndexedDB, JS</span>
+                            <span><i class="fa-regular fa-calendar"></i> 2026</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <button class="card-btn-gallery" onclick="openProjectGallery('anime')" data-i18n="btn_gallery">View Gallery ➔</button>
+                            <a href="https://fanciful-kangaroo-d3690e.netlify.app/index.html" target="_blank" class="card-btn-demo" title="Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/Zyan-Con/Anime-Chronicle.git" target="_blank" class="card-btn-github" title="Source Code"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. WEB Fishing spot -->
+                <div class="catalog-card" data-category="backend fullstack team">
+                    <div class="card-thumb-wrap">
+                        <img src="images/project/WhatsApp Image 2026-10-18 at 09.15.45.jpeg" alt="Garuda Cyber System">
+                        <span class="card-role-badge badge-team" data-i18n="badge_team"><i class="fa-solid fa-users"></i> Team (3 Devs)</span>
+                        <span class="card-photos-count" onclick="openProjectGallery('garuda')"><i class="fa-solid fa-images"></i> 1 photos</span>
+                    </div>
+                    <div class="card-body-wrap">
+                        <h3 class="card-project-title">Garuda Cyber Enterprise Suite</h3>
+                        <p class="card-project-desc">Arsitektur modul backend internal, integrasi database relasional, dan otorisasi role user serta beberapa api \.</p>
+                        <div class="card-meta-row">
+                            <span><i class="fa-brands fa-laravel"></i> Laravel, PHP, MySQL, Vue.JS</span>
+                            <span><i class="fa-solid fa-building"></i> Ex-Intern Role</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <button class="card-btn-gallery" onclick="openProjectGallery('garuda')" data-i18n="btn_gallery">View Gallery ➔</button>
+                            <a href="https://github.com/Zyan-Con/WebsiteFishingSPot.git" target="_blank" class="card-btn-github" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Personal Portfolio v2 -->
+                <div class="catalog-card" data-category="frontend solo">
+                    <div class="card-thumb-wrap">
+                        <img src="images/project/image copy 5.png" alt="Portfolio">
+                        <span class="card-role-badge badge-solo" data-i18n="badge_solo"><i class="fa-solid fa-user"></i> Solo Project</span>
+                        <span class="card-photos-count" onclick="openProjectGallery('portfolio')"><i class="fa-solid fa-images"></i> 4 Photos</span>
+                    </div>
+                    <div class="card-body-wrap">
+                        <h3 class="card-project-title">Yandz.id Personal Portfolio</h3>
+                        <p class="card-project-desc">Website portofolio multi-halaman dengan dark mode, multi-bahasa, dan terminal interaktif.</p>
+                        <div class="card-meta-row">
+                            <span><i class="fa-solid fa-code"></i> Vanilla JS, CSS3</span>
+                            <span><i class="fa-regular fa-calendar"></i> 2026</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <button class="card-btn-gallery" onclick="openProjectGallery('portfolio')" data-i18n="btn_gallery">View Gallery ➔</button>
+                            <a href="index.html" class="card-btn-demo" title="Explore"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/Zyan-Con" target="_blank" class="card-btn-github" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. AI Japanese Systems -->
+                <div class="catalog-card" data-category="ai backend duo">
+                    <div class="card-thumb-wrap">
+                        <img src="images/image copy 2.png" alt="AI Analyzer">
+                        <span class="card-role-badge badge-duo" data-i18n="badge_solo"><i class="fa-solid fa-user-group"></i> Solo Project</span>
+                        <span class="card-photos-count" onclick="openProjectGallery('ai')"><i class="fa-solid fa-images"></i> 1 Photos</span>
+                    </div>
+                    <div class="card-body-wrap">
+                        <h3 class="card-project-title">AI Neural Doc Analyzer</h3>
+                        <p class="card-project-desc">Integrasi model LLM (Gemini & OpenAI API) untuk ekstraksi dokumen otomatis berbasis Python.</p>
+                        <div class="card-meta-row">
+                            <span><i class="fa-brands fa-python"></i> Python, FastAPI</span>
+                            <span><i class="fa-solid fa-brain"></i> AI Research</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <button class="card-btn-gallery" onclick="openProjectGallery('ai')" data-i18n="btn_gallery">View Gallery ➔</button>
+                            <a href="https://github.com/Zyan-Con" target="_blank" class="card-btn-github" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. StoreInventory PWA -->
+                <div class="catalog-card" data-category="fullstack offline solo">
+                    <div class="card-thumb-wrap">
+                        <img src="images/image copy.png" alt="Store Inventory">
+                        <span class="card-role-badge badge-solo" data-i18n="badge_solo"><i class="fa-solid fa-user"></i> Solo Project</span>
+                        <span class="card-photos-count" onclick="openProjectGallery('inventory')"><i class="fa-solid fa-images"></i> 4 Photos</span>
+                    </div>
+                    <div class="card-body-wrap">
+                        <h3 class="card-project-title">StoreInventory Pro PWA</h3>
+                        <p class="card-project-desc">Sistem inventaris toko offline-first dengan ekspor file laporan CSV lokal.</p>
+                        <div class="card-meta-row">
+                            <span><i class="fa-solid fa-box-archive"></i> IndexedDB, Bootstrap</span>
+                            <span><i class="fa-regular fa-calendar"></i> 2025</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <button class="card-btn-gallery" onclick="openProjectGallery('inventory')" data-i18n="btn_gallery">View Gallery ➔</button>
+                            <a href="https://github.com/Zyan-Con/Japanese-ai" target="_blank" class="card-btn-github" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. REST API Engine -->
+                <div class="catalog-card" data-category="backend team">
+                    <div class="card-thumb-wrap">
+                        <img src="images/project/image copy 3.png" alt="Microservices">
+                        <span class="card-role-badge badge-team" data-i18n="badge_team"><i class="fa-solid fa-users"></i> Team (3 Devs)</span>
+                        <span class="card-photos-count" onclick="openProjectGallery('api')"><i class="fa-solid fa-images"></i> 2 Photos</span>
+                    </div>
+                    <div class="card-body-wrap">
+                        <h3 class="card-project-title">Project business Hexasite</h3>
+                        <p class="card-project-desc">Perancangan endpoint API terisolasi dengan rate-limiting, caching Redis, dan arsitektur token JWT.</p>
+                        <div class="card-meta-row">
+                            <span><i class="fa-brands fa-laravel"></i> Html, JS, Api</span>
+                            <span><i class="fa-solid fa-bolt"></i> High Scale</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <button class="card-btn-gallery" onclick="openProjectGallery('api')" data-i18n="btn_gallery">View Gallery ➔</button>
+                            <a href="https://github.com/Zyan-Con" target="_blank" class="card-btn-github" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination Bar -->
+            <div class="catalog-pagination-wrap">
+                <button class="page-nav-btn" disabled><i class="fa-solid fa-chevron-left"></i> Previous</button>
+                <div class="page-numbers-list">
+                    <button class="num-btn active">1</button>
+                    <button class="num-btn">2</button>
+                    <button class="num-btn">3</button>
+                </div>
+                <button class="page-nav-btn">Next <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. FOOTER UNIVERSAL (AVO SAAS STYLE) -->
+    <footer class="avo-footer">
+        <div class="avo-container">
+            <div class="avo-cta-banner">
+                <div class="avo-cta-left">
+                    <span class="avo-sub-tag" data-i18n="avo_sub_tag">START A PROJECT • FAST & TRANSPARENT PROCESS</span>
+                    <h2 class="avo-cta-title" data-i18n="avo_cta_title">Start building with Yanda today.</h2>
+                    <p class="avo-cta-subtext" data-i18n="avo_cta_subtext">Punya ide aplikasi, butuh backend Laravel yang kokoh, atau integrasi AI? Mari diskusikan solusinya bersama.</p>
+                    
+                    <form class="avo-input-wrap" onsubmit="handleAvoContact(event)">
+                        <input type="text" id="avoQuickInput" placeholder="Ketik pesan singkat atau ide proyek kamu..." required>
+                        <button type="submit" aria-label="Send direct message"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+                <div class="avo-direct-card">
+                    <div class="direct-card-header">
+                        <span class="direct-live-pill"><span class="dot-online"></span> <span data-i18n="direct_live_status">OPEN TO WORK</span></span>
+                        <span class="direct-tz"><i class="fa-regular fa-clock"></i> UTC+7 (WIB)</span>
+                    </div>
+
+                    <div class="direct-metrics-list">
+                        <div class="direct-metric-item">
+                            <span class="dm-label">ESTIMATED RESPONSE</span>
+                            <span class="dm-val" data-i18n="direct_est_response">⚡ &lt; 30 Mins (Fast Reply)</span>
+                        </div>
+                        <div class="direct-metric-item">
+                            <span class="dm-label">WORK PREFERENCE</span>
+                            <span class="dm-val" data-i18n="direct_work_pref">💼 Remote / Contract / Freelance</span>
+                        </div>
+                        <div class="direct-metric-item">
+                            <span class="dm-label">CORE FOCUS</span>
+                            <span class="dm-val" data-i18n="direct_core_focus">🛠️ Laravel, React, APIs & AI</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/62831833822530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." target="_blank" class="direct-wa-action">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span data-i18n="direct_btn_wa">Chat via WhatsApp Langsung</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="avo-columns-grid">
+                <div class="avo-col avo-col-brand">
+                    <a href="index.html" class="avo-brand-logo">Yandz<span>.id</span></a>
+                    <p class="avo-brand-desc" data-i18n="footer_tagline">Full-Stack Developer crafting scalable web applications, robust Laravel architectures, and AI integrations.</p>
+                </div>
+
+                <div class="avo-col">
+                    <h4 class="avo-col-heading" data-i18n="footer_nav_title">Navigation</h4>
+                    <ul class="avo-links-list">
+                        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">About Me</a></li>
+                        <li><a href="projects.html" data-i18n="nav_projects">Projects</a></li>
+                        <li><a href="certificate.html" data-i18n="nav_cert">Certificates</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="avo-col">
+                    <h4 class="avo-col-heading">Status & Stack</h4>
+                    <ul class="avo-links-list">
+                        <li><span class="avo-status-dot"></span> <span data-i18n="footer_available">Available for Projects</span></li>
+                        <li><a href="https://github.com/Zyan-Con" target="_blank">Ex-Intern @ Garuda Cyber</a></li>
+                        <li><a href="about.html">Arch Linux Environment</a></li>
+                        <li><span id="avoLiveTime">--:--:-- WIB</span></li>
+                    </ul>
+                </div>
+
+                <div class="avo-col avo-col-chat">
+                    <h4 class="avo-col-heading" data-i18n="footer_contact_title">Let's chat!</h4>
+                    <a href="mailto:zoliandaalmaghribi@gmail.com" class="avo-contact-text">zoliandaalmaghribi@gmail.com</a>
+                    <a href="https://wa.me/62831833822530" target="_blank" class="avo-contact-text">+62 831-8338-22530</a>
+
+                    <div class="avo-social-icons">
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Zyan-Con" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://wa.me/62831833822530" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="avo-bottom-bar">
+                <p>&copy; 2026 <strong>Yandz.id</strong> (Zolianda Al Maghribi). All rights reserved.</p>
+                <div class="avo-bottom-meta">
+                    <span data-i18n="footer_passion">Designed with Precision</span>
+                    <span>•</span>
+                    <span>Tangerang, Indonesia</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX GALERI MODAL -->
+    <div class="project-gallery-modal" id="projectGalleryModal" aria-hidden="true">
+        <div class="gallery-modal-overlay" onclick="closeProjectGallery()"></div>
+        <div class="gallery-modal-window">
+            <button class="gallery-close-btn" onclick="closeProjectGallery()" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+
+            <div class="gallery-main-view">
+                <button class="gallery-arrow arrow-prev" onclick="changeGalleryPhoto(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <img id="galleryMainImg" src="" alt="Screenshot">
+                <button class="gallery-arrow arrow-next" onclick="changeGalleryPhoto(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                <span class="gallery-photo-counter" id="galleryPhotoCounter">1 / 4</span>
+            </div>
+
+            <div class="gallery-thumbs-row" id="galleryThumbsRow"></div>
+
+            <div class="gallery-project-details">
+                <div class="gpd-left">
+                    <h3 id="galleryTitle">Project Name</h3>
+                    <p id="galleryDesc">Summary of project architecture.</p>
+                </div>
+                <div class="gpd-right">
+                    <span class="gpd-team-badge" id="galleryTeamBadge">Solo Project</span>
+                    <div class="gpd-links" id="galleryLinks"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WIDGETS -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+    <a href="https://wa.me/62831833822530" target="_blank" class="floating-wa-btn"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <div class="chat-widget">
+        <button class="chat-toggle" onclick="toggleChat()"><i class="fa-solid fa-comment-dots"></i></button>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <span>Chat with Yanda's Assistant</span>
+                <button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-bubble bot">Hi! Ask me about Yanda's projects or background 👋</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Type a question..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

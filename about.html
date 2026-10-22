@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Yandz.id</title>
+    <!-- Stylesheets Modular -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/certificate.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @view-transition { navigation: auto; }
+    </style>
+</head>
+
+<body class="about-editorial-body">
+    <!-- PROGRESS & PAGE TRANSITION -->
+    <!-- ===================================================
+         AESTHETIC CYBER-APERTURE PRELOADER
+    =================================================== -->
+    <div class="cyber-preloader" id="cyberPreloader" aria-hidden="true">
+        <!-- Tirai Atas & Bawah yang Membelah Terbuka -->
+        <div class="shutter-panel panel-top"></div>
+        <div class="shutter-panel panel-bottom"></div>
+
+        <!-- Panggung Visual di Tengah -->
+        <div class="preloader-stage">
+            <!-- Lingkaran Geometris Berputar -->
+            <div class="preloader-ring-wrap">
+                <div class="ring-outer-dashed"></div>
+                <div class="ring-inner-glow"></div>
+                <span class="preloader-symbol">Y</span>
+            </div>
+
+            <!-- Angka Counter & Brand Monospace -->
+            <div class="preloader-info-row">
+                <span class="preloader-brand">YANDZ.ID</span>
+                <span class="preloader-sep">•</span>
+                <span class="preloader-counter" id="preloaderCounter">000</span>
+            </div>
+
+            <!-- Status Teks Mengetik -->
+            <div class="preloader-status-row">
+                <span class="pulse-dot-cyan"></span>
+                <span id="preloaderStatusText">INITIALIZING RUNTIME</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-progress"></div>
+    <div class="custom-cursor"></div>
+
+    <!-- HEADER UNIVERSAL -->
+    <header class="main-header">
+        <div class="header-brand-wrap">
+            <a href="index.html" class="logo glitch-logo" data-text="Yandz.id">Yandz<span>.id</span></a>
+            <div class="header-hiring-badge">
+                <span class="pulse-dot"></span>
+                <span data-i18n="footer_available">Available for Hire</span>
+            </div>
+        </div>
+
+        <nav class="desktop-nav-menu" aria-label="Desktop Navigation">
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="about.html" class="active" data-i18n="nav_about">About</a>
+            <a href="projects.html" data-i18n="nav_projects">Projects</a>
+            <a href="certificate.html" data-i18n="nav_cert">Certificates</a>
+            <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <div class="desktop-lang-switcher">
+                <button onclick="setLanguage('id')" class="lang-pill" data-lang="id">ID</button>
+                <button onclick="setLanguage('en')" class="lang-pill" data-lang="en">EN</button>
+                <button onclick="setLanguage('ja')" class="lang-pill" data-lang="ja">JA</button>
+            </div>
+            <button class="header-theme-btn" onclick="toggleTheme()" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button class="menu-btn magnetic" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SIDE MENU MOBILE -->
+    <nav id="sideMenu">
+        <a href="index.html" class="magnetic" data-i18n="nav_home"><span class="menu-num">01</span> Home</a>
+        <a href="about.html" class="magnetic active" data-i18n="nav_about"><span class="menu-num">02</span> About</a>
+        <a href="projects.html" class="magnetic" data-i18n="nav_projects"><span class="menu-num">03</span> Projects</a>
+        <a href="certificate.html" class="magnetic" data-i18n="nav_cert"><span class="menu-num">04</span> Certificate</a>
+        <a href="contact.html" class="magnetic" data-i18n="nav_contact"><span class="menu-num">05</span> Contact</a>
+    </nav>
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- MAIN EDITORIAL CONTAINER -->
+    <main class="editorial-container">
+        
+        <!-- 01. HERO SCRAPBOOK BANNER -->
+        <section class="editorial-hero run-item">
+            <div class="ed-tag-top" data-i18n="about_hero_tag">FULL-STACK SPECIALIST • ARCH LINUX USER • AI EXPLORER ⚡</div>
+            
+            <div class="ed-photo-composition">
+                <div class="ed-sticker ed-sticker-top">
+                    <span>☺</span> YANDA
+                </div>
+                <div class="ed-doodle-arrow">
+                    <svg width="60" height="40" viewBox="0 0 60 40" fill="none">
+                        <path d="M10 30 C 25 5, 45 35, 55 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        <path d="M48 8 L 56 10 L 54 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <div class="ed-photo-frame">
+                    <img src="images/d964a003-57a1-433e-8fc8-07445910c7f5.jpeg" alt="Zolianda Al Maghribi">
+                </div>
+
+                <div class="ed-sticker ed-sticker-bottom">
+                    AL MAGHRIBI
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. WHO I AM & ASTERISK HIGHLIGHTS -->
+        <section class="ed-bio-block run-item">
+            <div class="ed-sticker ed-sticker-heading" data-i18n="about_who_sticker">
+                WHO I AM <span>☺</span>
+            </div>
+
+            <div class="ed-bio-content">
+                <p class="ed-lead-text" data-i18n="about_bio">
+                    Zolianda Al Maghribi (dikenal sebagai <strong>Yandz.id</strong>) adalah seorang full-stack developer asal Tangerang, Indonesia 🇮🇩. Berfokus pada perancangan arsitektur backend Laravel yang kokoh, antarmuka reaktif modern, dan integrasi kecerdasan buatan (AI).
+                </p>
+
+                <div class="ed-asterisk-grid">
+                    <div class="ed-asterisk-item">
+                        <span class="ed-asterisk">✱</span>
+                        <div>
+                            <h4 data-i18n="about_ast1_title">CURRENT INDUSTRY ROLE</h4>
+                            <p data-i18n="about_ast1_desc">Sedang menjalani dan belajar lebih jauh <strong>Tentang Dunia Tekhnologi</strong> 🦅, menangani arsitektur database relasional, API RESTful, dan modul backend PHP/Laravel.</p>
+                        </div>
+                    </div>
+                    <div class="ed-asterisk-item">
+                        <span class="ed-asterisk">✱</span>
+                        <div>
+                            <h4 data-i18n="about_ast2_title">ENGINEERING PRINCIPLES</h4>
+                            <p data-i18n="about_ast2_desc">Menulis kode yang bersih (*Clean Code*), optimasi kecepatan muat, dan merancang aplikasi ramah luring (*Offline-First PWA*) dengan IndexedDB.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. INTERACTIVE CODE IDE -->
+        <section class="ed-code-ide-section run-item">
+            <div class="ed-sticker ed-sticker-heading" data-i18n="about_ide_sticker">
+                DEV ENVIRONMENT <span>💻</span>
+            </div>
+
+            <div class="ide-window">
+                <div class="ide-tab-bar">
+                    <div class="ide-dots">
+                        <span class="dot-r"></span>
+                        <span class="dot-y"></span>
+                        <span class="dot-g"></span>
+                    </div>
+                    <div class="ide-tabs">
+                        <div class="ide-tab active"><i class="fa-brands fa-js"></i> YandaProfile.ts</div>
+                        <div class="ide-tab"><i class="fa-brands fa-php"></i> Internship.php</div>
+                        <div class="ide-tab"><i class="fa-brands fa-linux"></i> arch-dojo.sh</div>
+                    </div>
+                    <button class="ide-copy-btn" onclick="copyCodeSnippet(this)">
+                        <i class="fa-regular fa-copy"></i> <span data-i18n="about_ide_copy">Copy Code</span>
+                    </button>
+                </div>
+
+                <div class="ide-code-content">
+                    <pre><code><span class="c-keyword">import</span> { Developer, Passion } <span class="c-keyword">from</span> <span class="c-string">'@yandz/core'</span>;
+
+<span class="c-keyword">export const</span> <span class="c-def">yanda</span>: <span class="c-type">Developer</span> = {
+  <span class="c-prop">name</span>: <span class="c-string">'Zolianda Al Maghribi'</span>,
+  <span class="c-prop">alias</span>: <span class="c-string">'Yandz.id'</span>,
+  <span class="c-prop">location</span>: <span class="c-string">'Tangerang, Indonesia 🇮🇩'</span>,
+  <span class="c-prop">os</span>: <span class="c-string">'Arch Linux x86_64 🐧'</span>,
+  <span class="c-prop">internship</span>: {
+    <span class="c-prop">company</span>: <span class="c-string">'PT Garuda Cyber Indonesia 🦅'</span>,
+    <span class="c-prop">role</span>: <span class="c-string">'PHP & Laravel Backend Engineering'</span>,
+    <span class="c-prop">stack</span>: [<span class="c-string">'Laravel 11'</span>, <span class="c-string">'MySQL'</span>, <span class="c-string">'REST APIs'</span>, <span class="c-string">'MVC'</span>]
+  },
+  <span class="c-prop">passions</span>: [
+    <span class="c-string">'Full-Stack Architecture ⚡'</span>,
+    <span class="c-string">'AI Model & Prompt Engineering 🤖'</span>,
+    <span class="c-string">'Japanese Culture & Language (N5) 🇯🇵'</span>,
+    <span class="c-string">'Powerlifting & Gym Stamina 🏋️'</span>
+  ],
+  <span class="c-prop">status</span>: <span class="c-string">'🟢 Open to high-impact projects & remote collaborations'</span>,
+  <span class="c-def">buildImpact</span>(): <span class="c-type">string</span> {
+    <span class="c-keyword">return</span> <span class="c-string">"Turning complex business ideas into seamless digital experiences."</span>;
+  }
+};</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. PROJECT & ENGINEERING STATS METRICS -->
+        <section class="ed-stats-section run-item">
+            <div class="ed-sticker-center-box" data-i18n="about_stats_sticker">
+                PROJECTS & ENGINE METRICS 📊
+            </div>
+
+            <div class="ed-stats-grid">
+                <div class="ed-stat-card">
+                    <span class="ed-stat-num">15+</span>
+                    <h4 data-i18n="about_stat1_title">Completed Projects</h4>
+                    <p data-i18n="about_stat1_desc">Web apps, dashboards, catalog apps, dan personal landing pages.</p>
+                </div>
+                <div class="ed-stat-card">
+                    <span class="ed-stat-num">1,200+</span>
+                    <h4 data-i18n="about_stat2_title">Hours of Pure Coding</h4>
+                    <p data-i18n="about_stat2_desc">Dedikasi eksplorasi logika algoritma, slicing CSS, dan database.</p>
+                </div>
+                <div class="ed-stat-card">
+                    <span class="ed-stat-num">450+</span>
+                    <h4 data-i18n="about_stat3_title">Git Commits & Pushes</h4>
+                    <p data-i18n="about_stat3_desc">Track record konsisten di repositori GitHub @Zyan-Con.</p>
+                </div>
+                <div class="ed-stat-card">
+                    <span class="ed-stat-num">99.8%</span>
+                    <h4 data-i18n="about_stat4_title">Production Uptime Focus</h4>
+                    <p data-i18n="about_stat4_desc">Menjaga performa tetap ringan dan bebas error di runtime.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05. ARCH LINUX DOJO & BATTLE STATION SETUP -->
+        <section class="ed-linux-dojo run-item">
+            <div class="ed-sticker ed-sticker-heading" data-i18n="about_dojo_sticker">
+                MY DIGITAL DOJO <span>🐧</span>
+            </div>
+
+            <div class="dojo-card">
+                <div class="dojo-header">
+                    <div class="dojo-badge" data-i18n="about_dojo_badge"><i class="fa-brands fa-linux"></i> Arch Linux Environment</div>
+                    <span class="dojo-uptime" data-i18n="about_dojo_uptime">Uptime: 24/7 Hacker Flow</span>
+                </div>
+                <p class="dojo-desc" data-i18n="about_dojo_desc">
+                    Saya menggunakan <strong>Arch Linux</strong> sebagai sistem operasi harian. Membangun lingkungan koding dari awal melatih pemahaman mendalam tentang manajemen memori, terminal script, dan efisiensi resource.
+                </p>
+                <div class="dojo-specs-grid">
+                    <div class="dojo-spec-item">
+                        <span class="dojo-label" data-i18n="about_dojo_lbl1">OS & KERNEL</span>
+                        <span class="dojo-val"><i class="fa-brands fa-linux"></i> Arch Linux (Rolling Release)</span>
+                    </div>
+                    <div class="dojo-spec-item">
+                        <span class="dojo-label" data-i18n="about_dojo_lbl2">SHELL & TERMINAL</span>
+                        <span class="dojo-val"><i class="fa-solid fa-terminal"></i> Zsh + Kitty / Alacritty</span>
+                    </div>
+                    <div class="dojo-spec-item">
+                        <span class="dojo-label" data-i18n="about_dojo_lbl3">CODE EDITORS</span>
+                        <span class="dojo-val"><i class="fa-solid fa-code"></i> VS Code & Neovim</span>
+                    </div>
+                    <div class="dojo-spec-item">
+                        <span class="dojo-label" data-i18n="about_dojo_lbl4">LOCAL STACK</span>
+                        <span class="dojo-val"><i class="fa-solid fa-server"></i> Nginx, PHP 8.3, MariaDB, Laragon</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. PROOF OF WORK & INTERNSHIP POLAROID GALLERY -->
+        <section class="ed-polaroid-gallery-section run-item">
+            <div class="ed-sticker-center-box" data-i18n="about_proof_sticker">
+                PROOF OF WORK & EVIDENCE 📸
+            </div>
+            <p class="gallery-subtitle" data-i18n="about_proof_sub">Dokumentasi autentik kegiatan magang industri, sertifikasi sains, dan proyek nyata.</p>
+
+            <div class="polaroid-grid">
+                <div class="polaroid-card tilt-left">
+                    <div class="washi-tape-sticker">PT GARUDA CYBER</div>
+                    <div class="polaroid-img-box">
+                        <img src="images/WhatsApp Image 2026-10-18 at 14.43.38.jpeg" alt="Magang PT Garuda Cyber">
+                    </div>
+                    <div class="polaroid-caption">
+                        <h4 data-i18n="about_pol1_title">🏢 Garuda Cyber Indonesia HQ</h4>
+                        <p data-i18n="about_pol1_desc">Mengembangkan arsitektur backend Laravel & modul web enterprise bersama tim engineering.</p>
+                        <span class="polaroid-tag">#InternshipEvidence </span>
+                    </div>
+                </div>
+
+                <div class="polaroid-card tilt-right">
+                    <div class="washi-tape-sticker tape-green">VERIFIED AWARD</div>
+                    <div class="polaroid-img-box">
+                        <img src="images/certificate/duta-inspirasi.jpeg" alt="Penghargaan Duta Inspirasi">
+                    </div>
+                    <div class="polaroid-caption">
+                        <h4 data-i18n="about_pol2_title">🏆 Duta Inspirasi Indonesia</h4>
+                        <p data-i18n="about_pol2_desc">Penghargaan nasional atas kontribusi pemuda inspiratif & kepemimpinan digital.</p>
+                        <span class="polaroid-tag">#NationalAward </span>
+                    </div>
+                </div>
+
+                <div class="polaroid-card tilt-straight">
+                    <div class="washi-tape-sticker tape-blue">HARVARDX VERIFIED</div>
+                    <div class="polaroid-img-box">
+                        <img src="images/certificate/harvard.jpeg" alt="CS50P Python Harvard">
+                    </div>
+                    <div class="polaroid-caption">
+                        <h4 data-i18n="about_pol3_title">🐍 CS50P Python Programming</h4>
+                        <p data-i18n="about_pol3_desc">Kurikulum ilmu komputer ketat dari Harvard University dengan pemecahan masalah algoritma nyata.</p>
+                        <span class="polaroid-tag">#HarvardCS50P </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07. SERVICES I OFFER -->
+        <section class="ed-services-section run-item">
+            <div class="ed-sticker-center-box" data-i18n="about_services_sticker">
+                SERVICES I OFFER 🛠️
+            </div>
+
+            <div class="ed-services-grid">
+                <div class="ed-service-card">
+                    <div class="ed-service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="ed-service-desc">
+                        <h4 data-i18n="about_srv1_title">FULL-STACK WEB APPLICATIONS</h4>
+                        <p data-i18n="about_srv1_desc">Membangun sistem web responsif dari nol menggunakan Laravel, React.js, dan RESTful API.</p>
+                    </div>
+                </div>
+                <div class="ed-service-card">
+                    <div class="ed-service-icon"><i class="fa-solid fa-database"></i></div>
+                    <div class="ed-service-desc">
+                        <h4 data-i18n="about_srv2_title">OFFLINE-FIRST PWA & DATABASE</h4>
+                        <p data-i18n="about_srv2_desc">Integrasi IndexedDB lokal, sinkronisasi storage, dan optimasi arsitektur database MySQL.</p>
+                    </div>
+                </div>
+                <div class="ed-service-card">
+                    <div class="ed-service-icon"><i class="fa-solid fa-brain"></i></div>
+                    <div class="ed-service-desc">
+                        <h4 data-i18n="about_srv3_title">AI MODEL & API INTEGRATION</h4>
+                        <p data-i18n="about_srv3_desc">Menghubungkan endpoint LLM (Gemini / OpenAI API) ke dalam sistem web yang siap pakai.</p>
+                    </div>
+                </div>
+                <div class="ed-service-card">
+                    <div class="ed-service-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <div class="ed-service-desc">
+                        <h4 data-i18n="about_srv4_title">PERFORMANCE & SECURITY</h4>
+                        <p data-i18n="about_srv4_desc">Slicing UI pixel-perfect, kecepatan loading optimal, dan penerapan best-practice keamanan web.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08. 24-HOUR DEVELOPER LIFE CYCLE -->
+        <section class="ed-routine-section run-item">
+            <div class="ed-sticker ed-sticker-heading" data-i18n="about_routine_sticker">
+                DAILY ROUTINE <span>⏱️</span>
+            </div>
+
+            <div class="routine-timeline">
+                <div class="routine-item">
+                    <span class="routine-time">06:00 AM</span>
+                    <div class="routine-content">
+                        <h4 data-i18n="about_rt1_title">🌅 Morning Protocol</h4>
+                        <p data-i18n="about_rt1_desc">Review target harian, membaca dokumentasi teknologi baru, dan merencanakan sprint koding.</p>
+                    </div>
+                </div>
+                <div class="routine-item">
+                    <span class="routine-time">09:00 AM</span>
+                    <div class="routine-content">
+                        <h4 data-i18n="about_rt2_title">🏢 Engineering Sprint (PT Garuda Cyber)</h4>
+                        <p data-i18n="about_rt2_desc">Fokus pada modul backend, debugging logic Laravel, dan integrasi query database.</p>
+                    </div>
+                </div>
+                <div class="routine-item">
+                    <span class="routine-time">04:30 PM</span>
+                    <div class="routine-content">
+                        <h4 data-i18n="about_rt3_title">🏋️‍♂️ Iron & Stamina (Gym Session)</h4>
+                        <p data-i18n="about_rt3_desc">Angkat beban (*progressive overload*). Disiplin fisik adalah fondasi stamina koding berjam-jam.</p>
+                    </div>
+                </div>
+                <div class="routine-item">
+                    <span class="routine-time">07:30 PM</span>
+                    <div class="routine-content">
+                        <h4 data-i18n="about_rt4_title">⚡ Personal Projects & AI Lab</h4>
+                        <p data-i18n="about_rt4_desc">Mengeksplorasi Anime Chronicle, bereksperimen dengan model AI, dan optimasi website portofolio.</p>
+                    </div>
+                </div>
+                <div class="routine-item">
+                    <span class="routine-time">10:00 PM</span>
+                    <div class="routine-content">
+                        <h4 data-i18n="about_rt5_title">🇯🇵 Japanese Deck & Reading</h4>
+                        <p data-i18n="about_rt5_desc">Menyelesaikan review kartu Anki kosakata N5/N4 dan membaca literatur sains sebelum tidur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09. IRON & SYNTAX + JAPANESE LOG -->
+        <section class="ed-bento-passions run-item">
+            <div class="passions-grid">
+                <div class="passion-card gym-card">
+                    <div class="passion-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                    <span class="passion-tag" data-i18n="about_gym_tag">BODY & MIND DISCIPLINE</span>
+                    <h3 data-i18n="about_gym_title">Heavy Lifting & Mental Stamina 🏋️</h3>
+                    <p data-i18n="about_gym_desc">
+                        Di gym, setiap beban mengajarkan bahwa hasil nyata datang dari konsistensi berulang (*progressive overload*). Pola pikir yang sama persis saya terapkan saat mendebug kode rumit: pantang menyerah sampai solusi ditemukan.
+                    </p>
+                    <div class="gym-stats-row">
+                        <span>PR Focus: Squat • Bench • Deadlift</span>
+                        <span>Consistency: 5 Days/Week</span>
+                    </div>
+                </div>
+
+                <div class="passion-card jp-card">
+                    <div class="passion-icon"><i class="fa-solid fa-torii-gate"></i></div>
+                    <span class="passion-tag" data-i18n="about_jp_tag">LANGUAGE EXPEDITION</span>
+                    <h3 data-i18n="about_jp_title">日本語 (Japanese) Desk 🇯🇵</h3>
+                    <p data-i18n="about_jp_desc">
+                        Saat ini aktif mendalami bahasa Jepang (level <strong>JLPT N5 menuju N4</strong>). Membuka akses langsung ke literatur teknologi di Jepang dan kolaborasi tim global.
+                    </p>
+                    <div class="jp-kanji-shelf">
+                        <div class="kanji-box"><span>創造</span><small>Sōzō (Creation)</small></div>
+                        <div class="kanji-box"><span>情熱</span><small>Jōnetsu (Passion)</small></div>
+                        <div class="kanji-box"><span>挑戦</span><small>Chōsen (Challenge)</small></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. LIKES VS DISLIKES IN TECH -->
+        <section class="ed-opinions-section run-item">
+            <div class="ed-sticker-center-box" data-i18n="about_pref_sticker">
+                DEV PHILOSOPHY & PREFERENCES ⚖️
+            </div>
+
+            <div class="opinions-bento-grid">
+                <div class="opinion-card likes-card">
+                    <div class="opinion-header">
+                        <i class="fa-solid fa-heart"></i>
+                        <h4 data-i18n="about_likes_title">THINGS I ADMIRE IN CODE</h4>
+                    </div>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="about_likes_1">Arsitektur MVC yang rapi dan modular</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="about_likes_2">Desain antarmuka Dark Mode yang tidak menyilaukan</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="about_likes_3">Respon API super cepat (&lt; 100ms)</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="about_likes_4">Dokumentasi fungsi koding yang jelas untuk manusia</span></li>
+                    </ul>
+                </div>
+
+                <div class="opinion-card dislikes-card">
+                    <div class="opinion-header">
+                        <i class="fa-solid fa-ban"></i>
+                        <h4 data-i18n="about_dislikes_title">THINGS I AVOID LIKE A BUG</h4>
+                    </div>
+                    <ul>
+                        <li><i class="fa-solid fa-xmark"></i> <span data-i18n="about_dislikes_1">Kode spageti tanpa pemisahan komponen</span></li>
+                        <li><i class="fa-solid fa-xmark"></i> <span data-i18n="about_dislikes_2">Unhandled promises dan error diam-diam di console</span></li>
+                        <li><i class="fa-solid fa-xmark"></i> <span data-i18n="about_dislikes_3">Website berat penuh plugin yang tidak terpakai</span></li>
+                        <li><i class="fa-solid fa-xmark"></i> <span data-i18n="about_dislikes_4">Commit Git bertuliskan 'fix bug' tanpa penjelasan</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. HOBBIES & INTERESTS TAGS -->
+        <section class="about-hobbies run-item">
+            <div class="ed-sticker ed-sticker-heading" data-i18n="about_beyond_sticker">
+                BEYOND CODE <span>🎯</span>
+            </div>
+            <div class="hobby-tags">
+                <span class="tag">🇯🇵 Japan Culture</span>
+                <span class="tag">🏋️‍♂️ Heavy Lifting</span>
+                <span class="tag">🏃 Running & Endurance</span>
+                <span class="tag">📖 Tech & Sci-Fi Books</span>
+                <span class="tag">🛡️ Cybersecurity Basics</span>
+                <span class="tag">🏎️ Automotive & Engineering</span>
+                <span class="tag">🦖 Paleontology & Earth History</span>
+                <span class="tag">🤖 LLMs & Generative AI</span>
+            </div>
+        </section>
+
+        <!-- 12. CERTIFICATES SECTION -->
+        <div class="section-divider">
+            <span class="divider-line"></span>
+            <span class="divider-tag">04 / CREDENTIALS</span>
+            <span class="divider-line"></span>
+        </div>
+
+        <section id="certificates" class="cert-showcase-section run-item">
+            <div class="cert-wrapper">
+                <div class="cert-info-side">
+                    <div class="cert-sticker-title" data-i18n="about_cert_sticker">MY CERTIFICATES ☺</div>
+                    <p data-i18n="cert_desc">
+                        Beberapa sertifikasi pilihan yang telah saya selesaikan untuk mengasah keahlian pemrograman web, sains, dan bahasa.
+                    </p>
+                    <div class="cert-controls">
+                        <a href="certificate.html" class="cert-btn-more" data-i18n="about_cert_btn">All Certificates →</a>
+                        <button class="cert-nav-arrow" onclick="scrollCerts('left')" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="cert-nav-arrow" onclick="scrollCerts('right')" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="cert-slider-container">
+                    <div class="cert-slider-track" id="certSliderTrack">
+                        <!-- Card 1 -->
+                        <div class="cert-sticker-card" onclick="openCertModal('images/certificate/image.png','Introduction to CSS')">
+                            <div class="cert-tape"></div>
+                            <div class="cert-thumb-box">
+                                <img src="images/certificate/image.png" alt="CSS">
+                                <span class="cert-zoom-pill">ZOOM</span>
+                            </div>
+                            <div class="cert-meta-info">
+                                <h4>Introduction to CSS</h4>
+                                <span class="cert-issuer-tag">SoloLearn • 2026</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="cert-sticker-card" onclick="openCertModal('images/certificate/harvard.jpeg','CS50P: Programming with Python')">
+                            <div class="cert-tape"></div>
+                            <div class="cert-thumb-box">
+                                <img src="images/certificate/harvard.jpeg" alt="CS50P">
+                                <span class="cert-zoom-pill">ZOOM</span>
+                            </div>
+                            <div class="cert-meta-info">
+                                <h4>CS50P: Python</h4>
+                                <span class="cert-issuer-tag">HarvardX • 2024</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="cert-sticker-card" onclick="openCertModal('images/certificate/duta-inspirasi.jpeg','Duta Inspirasi Indonesia')">
+                            <div class="cert-tape"></div>
+                            <div class="cert-thumb-box">
+                                <img src="images/certificate/duta-inspirasi.jpeg" alt="Duta Inspirasi">
+                                <span class="cert-zoom-pill">ZOOM</span>
+                            </div>
+                            <div class="cert-meta-info">
+                                <h4>Duta Inspirasi Award</h4>
+                                <span class="cert-issuer-tag">Duta Inspirasi ID • 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. CONNECT WITH ME BANNER -->
+        <section class="ed-connect-banner run-item">
+            <div class="ed-connect-frame">
+                <div class="ed-sticker ed-sticker-connect" data-i18n="about_connect_sticker">
+                    CONNECT WITH ME ☺
+                </div>
+                <div class="ed-connect-links">
+                    <a href="mailto:zoliandaalmaghribi@gmail.com"><i class="fa-solid fa-envelope"></i> zoliandaalmaghribi@gmail.com</a>
+                    <a href="https://wa.me/62831833822530" target="_blank"><i class="fa-brands fa-whatsapp"></i> +62 831-8338-22530</a>
+                    <span><i class="fa-solid fa-location-dot"></i> Tangerang, Indonesia</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL POPUP SERTIFIKAT -->
+    <div class="cert-modal" id="certModal" aria-hidden="true">
+        <div class="modal-overlay" onclick="closeCertModal()"></div>
+        <div class="cert-modal-content">
+            <button class="modal-close" onclick="closeCertModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <img id="certModalImage" src="" alt="Certificate">
+            <h3 id="certModalTitle"></h3>
+        </div>
+    </div>
+
+    <!-- ===================================================
+         FINAL UNIVERSAL FOOTER (AVO SAAS STYLE)
+         (Gunakan di: index, about, projects, certificate, contact)
+    =================================================== -->
+    <footer class="avo-footer">
+        <div class="avo-container">
+
+            <!-- 1. UPPER CTA BANNER: DIRECT DEV CONNECT -->
+            <div class="avo-cta-banner">
+                <!-- Sisi Kiri: Teks & Form Cepat -->
+                <div class="avo-cta-left">
+                    <span class="avo-sub-tag" data-i18n="avo_sub_tag">START A PROJECT • FAST & TRANSPARENT PROCESS</span>
+                    <h2 class="avo-cta-title" data-i18n="avo_cta_title">Start building with Yanda today.</h2>
+                    <p class="avo-cta-subtext" data-i18n="avo_cta_subtext">Punya ide aplikasi, butuh backend Laravel yang kokoh, atau integrasi AI? Mari diskusikan solusinya bersama.</p>
+                    
+                    <!-- Direct Message / Idea Input -->
+                    <form class="avo-input-wrap" onsubmit="handleAvoContact(event)">
+                        <input type="text" id="avoQuickInput" placeholder="Ketik pesan singkat atau ide proyek kamu..." required>
+                        <button type="submit" aria-label="Send direct message">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Sisi Kanan: Kartu Kesiapan Kerja (Pengganti Gambar/Animasi) -->
+                <div class="avo-direct-card">
+                    <div class="direct-card-header">
+                        <span class="direct-live-pill"><span class="dot-online"></span> <span data-i18n="direct_live_status">OPEN TO WORK</span></span>
+                        <span class="direct-tz"><i class="fa-regular fa-clock"></i> UTC+7 (WIB)</span>
+                    </div>
+
+                    <div class="direct-metrics-list">
+                        <div class="direct-metric-item">
+                            <span class="dm-label">ESTIMATED RESPONSE</span>
+                            <span class="dm-val" data-i18n="direct_est_response">⚡ &lt; 30 Mins (Fast Reply)</span>
+                        </div>
+                        <div class="direct-metric-item">
+                            <span class="dm-label">WORK PREFERENCE</span>
+                            <span class="dm-val" data-i18n="direct_work_pref">💼 Remote / Contract / Freelance</span>
+                        </div>
+                        <div class="direct-metric-item">
+                            <span class="dm-label">CORE FOCUS</span>
+                            <span class="dm-val" data-i18n="direct_core_focus">🛠️ Laravel, React, APIs & AI</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/62831833822530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." target="_blank" class="direct-wa-action">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span data-i18n="direct_btn_wa">Chat via WhatsApp Langsung</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. FOUR CLEAN COLUMNS -->
+            <div class="avo-columns-grid">
+                
+                <!-- Col 1: Brand & Bio -->
+                <div class="avo-col avo-col-brand">
+                    <a href="index.html" class="avo-brand-logo">Yandz<span>.id</span></a>
+                    <p class="avo-brand-desc" data-i18n="footer_tagline">
+                        Full-Stack Developer crafting scalable web applications, robust Laravel architectures, and AI integrations.
+                    </p>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="avo-col">
+                    <h4 class="avo-col-heading" data-i18n="footer_nav_title">Navigation</h4>
+                    <ul class="avo-links-list">
+                        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">About Me</a></li>
+                        <li><a href="projects.html" data-i18n="nav_projects">Projects</a></li>
+                        <li><a href="certificate.html" data-i18n="nav_cert">Certificates</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Status & Ecosystem -->
+                <div class="avo-col">
+                    <h4 class="avo-col-heading">Status & Stack</h4>
+                    <ul class="avo-links-list">
+                        <li><span class="avo-status-dot"></span> <span data-i18n="footer_available">Available for Projects</span></li>
+                        <li><a href="https://github.com/Zyan-Con" target="_blank">Ex-Intern @ Garuda Cyber</a></li>
+                        <li><a href="about.html">Arch Linux Environment</a></li>
+                        <li><span id="avoLiveTime">--:--:-- WIB</span></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Let's chat! & Social Icons -->
+                <div class="avo-col avo-col-chat">
+                    <h4 class="avo-col-heading" data-i18n="footer_contact_title">Let's chat!</h4>
+                    <a href="mailto:zoliandaalmaghribi@gmail.com" class="avo-contact-text">zoliandaalmaghribi@gmail.com</a>
+                    <a href="https://wa.me/62831833822530" target="_blank" class="avo-contact-text">+62 831-8338-22530</a>
+
+                    <div class="avo-social-icons">
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Zyan-Con" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://wa.me/62831833822530" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 3. BOTTOM COPYRIGHT STRIP -->
+            <div class="avo-bottom-bar">
+                <p>&copy; 2026 <strong>Yandz.id</strong> (Zolianda Al Maghribi). All rights reserved.</p>
+                <div class="avo-bottom-meta">
+                    <span data-i18n="footer_passion">Designed with Precision</span>
+                    <span>•</span>
+                    <span>Tangerang, Indonesia</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- MOBILE BOTTOM DOCK -->
+    <nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
+        <a href="index.html" class="dock-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="about.html" class="dock-item active">
+            <i class="fa-solid fa-user"></i>
+            <span>About</span>
+        </a>
+        <a href="projects.html" class="dock-item">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Projects</span>
+        </a>
+        <a href="https://wa.me/62831833822530" target="_blank" class="dock-item wa-highlight">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Chat</span>
+        </a>
+    </nav>
+
+    <!-- FLOATING ACTIONS -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    
+    <a href="https://wa.me/62831833822530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." 
+       target="_blank" 
+       class="floating-wa-btn" 
+       aria-label="Chat WhatsApp Bisnis">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="wa-tooltip">Chat WhatsApp Bisnis</span>
+    </a>
+
+    <!-- CHATBOT WIDGET -->
+    <div class="chat-widget">
+        <button class="chat-toggle" onclick="toggleChat()" aria-label="Open chat"><i class="fa-solid fa-comment-dots"></i></button>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <span>Chat with Yanda's Assistant</span>
+                <button onclick="toggleChat()" aria-label="Close chat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-bubble bot">Hi! Ask me about Yanda's skills, work, or background 👋</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Type a question..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT LOADER (GLOBAL & CERTIFICATE MODULAR) -->
+    <script src="js/script.js"></script>
+    <script src="js/certificate.js"></script>
+</body>
+</html>

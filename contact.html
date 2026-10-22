@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Collaboration - Yandz.id</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @view-transition { navigation: auto; }
+    </style>
+</head>
+
+<body class="contact-page-body">
+    <!-- PROGRESS & PAGE TRANSITION -->
+    <!-- ===================================================
+         AESTHETIC CYBER-APERTURE PRELOADER
+    =================================================== -->
+    <div class="cyber-preloader" id="cyberPreloader" aria-hidden="true">
+        <!-- Tirai Atas & Bawah yang Membelah Terbuka -->
+        <div class="shutter-panel panel-top"></div>
+        <div class="shutter-panel panel-bottom"></div>
+
+        <!-- Panggung Visual di Tengah -->
+        <div class="preloader-stage">
+            <!-- Lingkaran Geometris Berputar -->
+            <div class="preloader-ring-wrap">
+                <div class="ring-outer-dashed"></div>
+                <div class="ring-inner-glow"></div>
+                <span class="preloader-symbol">Y</span>
+            </div>
+
+            <!-- Angka Counter & Brand Monospace -->
+            <div class="preloader-info-row">
+                <span class="preloader-brand">YANDZ.ID</span>
+                <span class="preloader-sep">•</span>
+                <span class="preloader-counter" id="preloaderCounter">000</span>
+            </div>
+
+            <!-- Status Teks Mengetik -->
+            <div class="preloader-status-row">
+                <span class="pulse-dot-cyan"></span>
+                <span id="preloaderStatusText">INITIALIZING RUNTIME</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-progress"></div>
+    <div class="custom-cursor"></div>
+
+    <!-- ===================================================
+         HEADER UNIVERSAL
+    =================================================== -->
+    <header class="main-header">
+        <div class="header-brand-wrap">
+            <a href="index.html" class="logo glitch-logo" data-text="Yandz.id">Yandz<span>.id</span></a>
+            <div class="header-hiring-badge">
+                <span class="pulse-dot"></span>
+                <span data-i18n="footer_available">Available for Hire</span>
+            </div>
+        </div>
+
+        <nav class="desktop-nav-menu" aria-label="Desktop Navigation">
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="about.html" data-i18n="nav_about">About</a>
+            <a href="projects.html" data-i18n="nav_projects">Projects</a>
+            <a href="certificate.html" data-i18n="nav_cert">Certificates</a>
+            <a href="contact.html" class="active" data-i18n="nav_contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <div class="desktop-lang-switcher">
+                <button onclick="setLanguage('id')" class="lang-pill" data-lang="id">ID</button>
+                <button onclick="setLanguage('en')" class="lang-pill" data-lang="en">EN</button>
+                <button onclick="setLanguage('ja')" class="lang-pill" data-lang="ja">JA</button>
+            </div>
+            <button class="header-theme-btn" onclick="toggleTheme()" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button class="menu-btn magnetic" id="menuBtn" onclick="toggleMenu()" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SIDE MENU MOBILE -->
+    <nav id="sideMenu">
+        <a href="index.html" class="magnetic" data-i18n="nav_home"><span class="menu-num">01</span> Home</a>
+        <a href="about.html" class="magnetic" data-i18n="nav_about"><span class="menu-num">02</span> About</a>
+        <a href="projects.html" class="magnetic" data-i18n="nav_projects"><span class="menu-num">03</span> Projects</a>
+        <a href="certificate.html" class="magnetic" data-i18n="nav_cert"><span class="menu-num">04</span> Certificate</a>
+        <a href="contact.html" class="magnetic active" data-i18n="nav_contact"><span class="menu-num">05</span> Contact</a>
+    </nav>
+    <div id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- ===================================================
+         01. CONTACT HERO & INTERACTIVE FORM
+    =================================================== -->
+    <main class="contact-main-section">
+        <div class="contact-container">
+            
+            <!-- Hero Heading -->
+            <div class="contact-hero-wrap run-item">
+                <span class="contact-breadcrumb">Home / <strong style="color: var(--accent-orange);">Get in Touch</strong></span>
+                <span class="contact-badge"><i class="fa-solid fa-comments"></i> Start a Conversation</span>
+                <h1 class="contact-title" data-i18n="contact_title">Let's Talk</h1>
+                <p class="contact-intro" data-i18n="contact_intro">
+                    Punya ide proyek, kebutuhan rekayasa web, atau ingin berdiskusi santai seputar teknologi? Jangan ragu untuk menghubungi saya.
+                </p>
+            </div>
+
+            <!-- Grid Kontak: Form di Kiri & Kartu Kontak di Kanan -->
+            <div class="contact-layout-grid run-item">
+                
+                <!-- Sisi Kiri: Formulir Pesan -->
+                <div class="contact-form-card">
+                    <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                        <div class="form-success" id="formSuccess">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <p>Pesan berhasil dikirim! Saya akan segera membalasnya.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label data-i18n="form_name">Nama</label>
+                            <input type="text" name="name" placeholder="Nama atau Perusahaan Anda" required autocomplete="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label data-i18n="form_email">Email</label>
+                            <input type="email" name="email" placeholder="nama@email.com" required autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label data-i18n="form_message">Pesan / Detail Proyek</label>
+                            <textarea name="message" placeholder="Ceritakan ide aplikasi, fitur yang dibutuhkan, atau pertanyaan Anda..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="contact-submit-btn magnetic">
+                            <span data-i18n="form_send">Kirim Pesan</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Sisi Kanan: Direct Contact Cards -->
+                <div class="contact-info-cards">
+                    
+                    <!-- Card 1: WhatsApp Bisnis -->
+                    <a href="https://wa.me/62831833822530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." target="_blank" class="contact-card-item wa-item">
+                        <div class="card-icon-wrap">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="card-text-wrap">
+                            <span class="card-lbl">WHATSAPP BISNIS (FAST REPLY)</span>
+                            <span class="card-val">+62 831-8338-22530</span>
+                            <span class="card-hint">Klik untuk chat langsung ➔</span>
+                        </div>
+                    </a>
+
+                    <!-- Card 2: Email Resmi (1-Click Copy) -->
+                    <div class="contact-card-item" onclick="copyToClipboard('zoliandaalmaghribi@gmail.com', this)">
+                        <div class="card-icon-wrap">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="card-text-wrap">
+                            <span class="card-lbl" data-i18n="detail_email">EMAIL RESMI</span>
+                            <span class="card-val">zoliandaalmaghribi@gmail.com</span>
+                            <span class="card-hint label">Klik untuk salin alamat email</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Lokasi & Jam Lokal -->
+                    <div class="contact-card-item">
+                        <div class="card-icon-wrap">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="card-text-wrap">
+                            <span class="card-lbl" data-i18n="detail_location">LOKASI & ZONA WAKTU</span>
+                            <span class="card-val">Tangerang, Indonesia (WIB)</span>
+                            <span class="card-hint">UTC+7 • Siap kerja remote & fleksibel</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Quick Collaboration Preferences -->
+                    <div class="contact-card-item collab-spec-card">
+                        <div class="card-icon-wrap">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <div class="card-text-wrap">
+                            <span class="card-lbl">KOLABORASI YANG DIBUKA</span>
+                            <span class="card-val">Freelance • Kontrak • Tim Engineering</span>
+                            <span class="card-hint">Frontend React, Backend Laravel, & Integrasi AI</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===================================================
+         UNIVERSAL AVO SAAS FOOTER (FINAL & SERAGAM)
+    =================================================== -->
+    <footer class="avo-footer">
+        <div class="avo-container">
+
+            <div class="avo-cta-banner">
+                <div class="avo-cta-left">
+                    <span class="avo-sub-tag" data-i18n="avo_sub_tag">START A PROJECT • FAST & TRANSPARENT PROCESS</span>
+                    <h2 class="avo-cta-title" data-i18n="avo_cta_title">Start building with Yanda today.</h2>
+                    <p class="avo-cta-subtext" data-i18n="avo_cta_subtext">Punya ide aplikasi, butuh backend Laravel yang kokoh, atau integrasi AI? Mari diskusikan solusinya bersama.</p>
+                    
+                    <form class="avo-input-wrap" onsubmit="handleAvoContact(event)">
+                        <input type="text" id="avoQuickInput" placeholder="Ketik pesan singkat atau ide proyek kamu..." required>
+                        <button type="submit" aria-label="Send direct message">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="avo-direct-card">
+                    <div class="direct-card-header">
+                        <span class="direct-live-pill"><span class="dot-online"></span> <span data-i18n="direct_live_status">OPEN TO WORK</span></span>
+                        <span class="direct-tz"><i class="fa-regular fa-clock"></i> UTC+7 (WIB)</span>
+                    </div>
+
+                    <div class="direct-metrics-list">
+                        <div class="direct-metric-item">
+                            <span class="dm-label">ESTIMATED RESPONSE</span>
+                            <span class="dm-val" data-i18n="direct_est_response">⚡ &lt; 30 Mins (Fast Reply)</span>
+                        </div>
+                        <div class="direct-metric-item">
+                            <span class="dm-label">WORK PREFERENCE</span>
+                            <span class="dm-val" data-i18n="direct_work_pref">💼 Remote / Contract / Freelance</span>
+                        </div>
+                        <div class="direct-metric-item">
+                            <span class="dm-label">CORE FOCUS</span>
+                            <span class="dm-val" data-i18n="direct_core_focus">🛠️ Laravel, React, APIs & AI</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/62831833822530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." target="_blank" class="direct-wa-action">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span data-i18n="direct_btn_wa">Chat via WhatsApp Langsung</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="avo-columns-grid">
+                <div class="avo-col avo-col-brand">
+                    <a href="index.html" class="avo-brand-logo">Yandz<span>.id</span></a>
+                    <p class="avo-brand-desc" data-i18n="footer_tagline">
+                        Full-Stack Developer crafting scalable web applications, robust Laravel architectures, and AI integrations.
+                    </p>
+                </div>
+
+                <div class="avo-col">
+                    <h4 class="avo-col-heading" data-i18n="footer_nav_title">Navigation</h4>
+                    <ul class="avo-links-list">
+                        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">About Me</a></li>
+                        <li><a href="projects.html" data-i18n="nav_projects">Projects</a></li>
+                        <li><a href="certificate.html" data-i18n="nav_cert">Certificates</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="avo-col">
+                    <h4 class="avo-col-heading">Status & Stack</h4>
+                    <ul class="avo-links-list">
+                        <li><span class="avo-status-dot"></span> <span data-i18n="footer_available">Available for Projects</span></li>
+                        <li><a href="https://github.com/Zyan-Con" target="_blank">Ex-Intern @ Garuda Cyber</a></li>
+                        <li><a href="about.html">Arch Linux Environment</a></li>
+                        <li><span id="avoLiveTime">--:--:-- WIB</span></li>
+                    </ul>
+                </div>
+
+                <div class="avo-col avo-col-chat">
+                    <h4 class="avo-col-heading" data-i18n="footer_contact_title">Let's chat!</h4>
+                    <a href="mailto:zoliandaalmaghribi@gmail.com" class="avo-contact-text">zoliandaalmaghribi@gmail.com</a>
+                    <a href="https://wa.me/62831833822530" target="_blank" class="avo-contact-text">+62 831-8338-22530</a>
+
+                    <div class="avo-social-icons">
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/Zyan-Con" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://wa.me/62831833822530" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="avo-bottom-bar">
+                <p>&copy; 2026 <strong>Yandz.id</strong> (Zolianda Al Maghribi). All rights reserved.</p>
+                <div class="avo-bottom-meta">
+                    <span data-i18n="footer_passion">Designed with Precision</span>
+                    <span>•</span>
+                    <span>Tangerang, Indonesia</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- MOBILE BOTTOM DOCK -->
+    <nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
+        <a href="index.html" class="dock-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="about.html" class="dock-item">
+            <i class="fa-solid fa-user"></i>
+            <span>About</span>
+        </a>
+        <a href="projects.html" class="dock-item">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Projects</span>
+        </a>
+        <a href="https://wa.me/62831833822530" target="_blank" class="dock-item wa-highlight">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Chat</span>
+        </a>
+    </nav>
+
+    <!-- FLOATING ACTIONS & CHATBOT -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    
+    <a href="https://wa.me/62831833822530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." 
+       target="_blank" 
+       class="floating-wa-btn" 
+       aria-label="Chat WhatsApp Bisnis">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="wa-tooltip">Chat WhatsApp Bisnis</span>
+    </a>
+
+    <div class="chat-widget">
+        <button class="chat-toggle" onclick="toggleChat()" aria-label="Open chat"><i class="fa-solid fa-comment-dots"></i></button>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <span>Chat with Yanda's Assistant</span>
+                <button onclick="toggleChat()" aria-label="Close chat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-bubble bot">Hi! Have a project in mind or want to work together? Leave a message! 👋</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Type a question..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

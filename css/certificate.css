@@ -1,0 +1,709 @@
+/* ===================================================
+   CERTIFICATE MODULE (SEPARATED CSS)
+   Neo-Sticker & Editorial Aesthetic
+=================================================== */
+
+.cert-showcase-section {
+  padding: 40px 0 60px;
+  position: relative;
+}
+
+.cert-wrapper {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Sticker Label Header */
+.cert-sticker-title {
+  display: inline-block;
+  background: #ffffff;
+  color: #111111;
+  border: 2px solid #111111;
+  padding: 8px 18px;
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transform: rotate(-2deg);
+  box-shadow: 4px 4px 0px #111111;
+  margin-bottom: 16px;
+}
+
+.cert-info-side p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #444444;
+  margin-bottom: 24px;
+}
+
+.cert-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cert-btn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #111111;
+  color: #ffffff !important;
+  text-decoration: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border: 2px solid #111111;
+  transition: all 0.2s ease;
+}
+
+.cert-btn-more:hover {
+  background: var(--accent-orange, #e8734a);
+  border-color: var(--accent-orange, #e8734a);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #111111;
+}
+
+.cert-nav-arrow {
+  width: 42px;
+  height: 42px;
+  background: #ffffff;
+  border: 2px solid #111111;
+  color: #111111;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.cert-nav-arrow:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0px #111111;
+}
+
+/* Slider Track */
+.cert-slider-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.cert-slider-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 10px 4px 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cert-slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Sticker Certificate Card */
+.cert-sticker-card {
+  flex: 0 0 290px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 2px solid #111111;
+  padding: 14px;
+  box-shadow: 5px 5px 0px #111111;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cert-sticker-card:hover {
+  transform: translateY(-6px) rotate(0.5deg);
+  box-shadow: 8px 8px 0px #111111;
+}
+
+/* Tape Effect di Sudut Kartu */
+.cert-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 70px;
+  height: 20px;
+  background: rgba(228, 221, 208, 0.85);
+  border: 1px dashed rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.cert-thumb-box {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1.5px solid #111111;
+  overflow: hidden;
+  background: #f4efe8;
+  position: relative;
+}
+
+.cert-thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cert-sticker-card:hover .cert-thumb-box img {
+  transform: scale(1.05);
+}
+
+.cert-zoom-pill {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #111111;
+  color: #ffffff;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cert-sticker-card:hover .cert-zoom-pill {
+  opacity: 1;
+}
+
+.cert-meta-info {
+  margin-top: 14px;
+}
+
+.cert-meta-info h4 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cert-issuer-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-orange, #e8734a);
+  text-transform: uppercase;
+}
+
+/* Certificate Modal Popup */
+.cert-modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.cert-modal.active {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.75);
+  backdrop-filter: blur(5px);
+}
+
+.cert-modal-content {
+  position: relative;
+  z-index: 2;
+  width: min(850px, 92vw);
+  background: #ffffff;
+  border: 3px solid #111111;
+  padding: 30px;
+  box-shadow: 10px 10px 0px #111111;
+  text-align: center;
+  animation: modalPop 0.25s ease;
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #111111;
+  color: #ffffff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.cert-modal-content img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  border: 2px solid #111111;
+  margin: 15px auto;
+  display: block;
+}
+
+#certModalTitle {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111111;
+  margin-top: 10px;
+}
+
+/* Dark Mode Adaptation */
+html[data-theme="dark"] .cert-sticker-title {
+  background: #1a1a24;
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 4px 4px 0px var(--accent-orange, #e8734a);
+}
+
+html[data-theme="dark"] .cert-sticker-card {
+  background: #1e1e28;
+  border-color: #38384a;
+  box-shadow: 5px 5px 0px #0a0a0e;
+}
+
+html[data-theme="dark"] .cert-meta-info h4 {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .cert-info-side p {
+  color: #a0a0b2;
+}
+
+html[data-theme="dark"] .cert-nav-arrow {
+  background: #1e1e28;
+  border-color: #38384a;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .cert-nav-arrow:hover {
+  background: var(--accent-orange, #e8734a);
+  border-color: var(--accent-orange, #e8734a);
+}
+
+html[data-theme="dark"] .cert-modal-content {
+  background: #1a1a24;
+  border-color: var(--accent-orange, #e8734a);
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.8);
+}
+
+html[data-theme="dark"] #certModalTitle {
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .cert-wrapper {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+/* ===================================================
+   KOMPONEN BARU ABOUT.HTML (STATS, DOJO, ROUTINE & BENTO)
+=================================================== */
+
+/* 1. Project & Engineering Stats Grid */
+.ed-stats-section {
+  margin: 70px 0;
+  text-align: center;
+}
+
+.ed-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.ed-stat-card {
+  background: #ffffff;
+  border: 2px solid #111111;
+  padding: 24px;
+  box-shadow: 4px 4px 0px #111111;
+  transition: transform 0.2s ease;
+}
+
+.ed-stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.ed-stat-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent-orange, #e8734a);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ed-stat-card h4 {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.ed-stat-card p {
+  font-size: 0.8rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 2. Arch Linux Dojo Card */
+.ed-linux-dojo {
+  margin: 70px 0;
+}
+
+.dojo-card {
+  background: #ffffff;
+  border: 2px solid #111111;
+  padding: 30px;
+  box-shadow: 6px 6px 0px #111111;
+}
+
+.dojo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dojo-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1793d1; /* Arch Linux Official Blue */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dojo-uptime {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(23, 147, 209, 0.1);
+  color: #1793d1;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.dojo-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.dojo-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  border-top: 1.5px dashed #111111;
+  padding-top: 20px;
+}
+
+.dojo-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dojo-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #888;
+}
+
+.dojo-val {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* 3. 24-Hour Developer Routine Timeline */
+.ed-routine-section {
+  margin: 70px 0;
+}
+
+.routine-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-left: 2px dashed #111111;
+  padding-left: 25px;
+  margin-top: 25px;
+}
+
+.routine-item {
+  position: relative;
+}
+
+.routine-item::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: var(--accent-orange, #e8734a);
+  border: 2px solid #111111;
+  border-radius: 50%;
+}
+
+.routine-time {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent-orange, #e8734a);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.routine-content h4 {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.routine-content p {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 4. Passions Bento (Gym + Japanese Desk) */
+.ed-bento-passions {
+  margin: 70px 0;
+}
+
+.passions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.passion-card {
+  background: #ffffff;
+  border: 2px solid #111111;
+  padding: 28px;
+  box-shadow: 5px 5px 0px #111111;
+  display: flex;
+  flex-direction: column;
+}
+
+.passion-icon {
+  font-size: 2rem;
+  color: var(--accent-orange, #e8734a);
+  margin-bottom: 12px;
+}
+
+.passion-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.passion-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 6px 0 12px;
+}
+
+.passion-card p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.gym-stats-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #111;
+  border-top: 1.5px dashed #111;
+  padding-top: 14px;
+}
+
+.jp-kanji-shelf {
+  display: flex;
+  gap: 12px;
+  border-top: 1.5px dashed #111;
+  padding-top: 14px;
+}
+
+.kanji-box {
+  flex: 1;
+  background: #f4efe8;
+  border: 1.5px solid #111;
+  padding: 8px;
+  text-align: center;
+}
+
+.kanji-box span {
+  font-size: 1.2rem;
+  font-weight: 800;
+  display: block;
+}
+
+.kanji-box small {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #666;
+}
+
+/* 5. Likes vs Dislikes Bento */
+.ed-opinions-section {
+  margin: 70px 0;
+  text-align: center;
+}
+
+.opinions-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  text-align: left;
+}
+
+.opinion-card {
+  background: #ffffff;
+  border: 2px solid #111111;
+  padding: 24px;
+  box-shadow: 4px 4px 0px #111111;
+}
+
+.opinion-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  border-bottom: 1.5px dashed #111;
+  padding-bottom: 12px;
+}
+
+.likes-card .opinion-header i { color: #22c55e; font-size: 1.2rem; }
+.dislikes-card .opinion-header i { color: #ef4444; font-size: 1.2rem; }
+
+.opinion-header h4 {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.opinion-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opinion-card li {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.likes-card li i { color: #22c55e; margin-top: 3px; }
+.dislikes-card li i { color: #ef4444; margin-top: 3px; }
+
+/* ===================================================
+   DARK MODE SUPPORT UNTUK SEMUA ELEMEN BARU
+=================================================== */
+html[data-theme="dark"] .ed-stat-card,
+html[data-theme="dark"] .dojo-card,
+html[data-theme="dark"] .passion-card,
+html[data-theme="dark"] .opinion-card {
+  background: #181820;
+  border-color: #38384a;
+  box-shadow: 5px 5px 0px #0a0a0e;
+}
+
+html[data-theme="dark"] .ed-stat-card h4,
+html[data-theme="dark"] .dojo-val,
+html[data-theme="dark"] .routine-content h4,
+html[data-theme="dark"] .passion-card h3,
+html[data-theme="dark"] .opinion-header h4,
+html[data-theme="dark"] .opinion-card li,
+html[data-theme="dark"] .gym-stats-row {
+  color: #f0f0f0;
+}
+
+html[data-theme="dark"] .dojo-desc,
+html[data-theme="dark"] .ed-stat-card p,
+html[data-theme="dark"] .routine-content p,
+html[data-theme="dark"] .passion-card p {
+  color: #a0a0b2;
+}
+
+html[data-theme="dark"] .routine-timeline {
+  border-left-color: #38384a;
+}
+
+html[data-theme="dark"] .dojo-specs-grid,
+html[data-theme="dark"] .gym-stats-row,
+html[data-theme="dark"] .jp-kanji-shelf,
+html[data-theme="dark"] .opinion-header {
+  border-top-color: #38384a;
+  border-bottom-color: #38384a;
+}
+
+html[data-theme="dark"] .kanji-box {
+  background: #1e1e28;
+  border-color: #38384a;
+  color: #fff;
+}
+
+/* Responsif Mobile Tablet */
+@media (max-width: 850px) {
+  .dojo-specs-grid,
+  .passions-grid,
+  .opinions-bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
