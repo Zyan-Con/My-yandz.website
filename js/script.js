@@ -1357,7 +1357,7 @@ function handleAvoContact(e) {
   const userMsg = input.value.trim();
   if (userMsg === '') return;
 
-  const waURL = `https://wa.me/62831833822530?text=${encodeURIComponent('Halo Yanda, pesan dari website: ' + userMsg)}`;
+  const waURL = `https://wa.me/6283183382530?text=${encodeURIComponent('Halo Yanda, pesan dari website: ' + userMsg)}`;
   window.open(waURL, '_blank');
   input.value = '';
 }
@@ -1615,7 +1615,7 @@ function handleAvoContact(e) {
   const userMsg = input.value.trim();
   if (userMsg === '') return;
 
-  const waURL = `https://wa.me/62831833822530?text=${encodeURIComponent('Halo Yanda, pesan dari website: ' + userMsg)}`;
+  const waURL = `https://wa.me/6283183382530?text=${encodeURIComponent('Halo Yanda, pesan dari website: ' + userMsg)}`;
   window.open(waURL, '_blank');
   input.value = '';
 }
