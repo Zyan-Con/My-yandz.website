@@ -207,7 +207,7 @@ const chatData = [
   { keywords: ['kerja', 'pengalaman', 'job'], answer: "Yanda saat ini aktif membangun proyek software engineering dan sedang magang di PT Garuda Cyber Indonesia." },
   { keywords: ['tinggal', 'lokasi', 'domisili', 'alamat'], answer: "Yanda berdomisili di Tangerang, Indonesia (WIB - UTC+7)." },
   { keywords: ['hobi', 'suka', 'minat'], answer: "Yanda menyukai anime & kultur Jepang, membaca, olahraga (gym & running), serta eksplorasi teknologi AI dan cybersecurity." },
-  { keywords: ['kontak', 'hubungi', 'email', 'wa', 'whatsapp'], answer: "Kamu bisa menghubungi Yanda via WhatsApp Bisnis di +62 831-8338-22530 atau email zoliandaalmaghribi@gmail.com." },
+  { keywords: ['kontak', 'hubungi', 'email', 'wa', 'whatsapp'], answer: "Kamu bisa menghubungi Yanda via WhatsApp Bisnis di +62 831-8338-2530 atau email zoliandaalmaghribi@gmail.com." },
   { keywords: ['project', 'karya', 'portofolio'], answer: "Cek bagian Featured Projects untuk melihat proyek unggulan seperti Anime Chronicle (3D Book UI + IndexedDB)!" },
    {
     keywords: ['skill', 'kemampuan', 'bisa apa'],
@@ -534,7 +534,7 @@ const translations = {
     faq_q3: "Teknologi apa yang paling sering digunakan dalam proyek baru?",
     faq_a3: "Framework utama saya adalah Laravel (PHP) untuk backend tangguh & REST API, dipadukan dengan React.js atau vanilla modern JS untuk antarmuka interaktif.",
     faq_q4: "Berapa nomor kontak resmi yang paling cepat dihubungi?",
-    faq_a4: "Kamu bisa langsung menghubungi WhatsApp Bisnis saya di +62 831-8338-22530 atau melalui email di zoliandaalmaghribi@gmail.com.",
+    faq_a4: "Kamu bisa langsung menghubungi WhatsApp Bisnis saya di +62 831-8338-2530 atau melalui email di zoliandaalmaghribi@gmail.com.",
 
     // 08. Coffee
     coffee_title: "Traktir Saya Kopi",
@@ -770,7 +770,7 @@ const translations = {
     faq_q3: "What is your primary technology choice for new applications?",
     faq_a3: "My primary backend engine is Laravel (PHP) with relational database design, paired with React.js or modern vanilla JS for reactive frontends.",
     faq_q4: "What is the fastest way to get in touch?",
-    faq_a4: "You can reach me directly on my Business WhatsApp at +62 831-8338-22530 or via email at zoliandaalmaghribi@gmail.com.",
+    faq_a4: "You can reach me directly on my Business WhatsApp at +62 831-8338-2530 or via email at zoliandaalmaghribi@gmail.com.",
 
     coffee_title: "Give Me Some Coffee",
     coffee_desc: "If you enjoy my work or want to fuel my software engineering journey, a cup of coffee is greatly appreciated! ☕",
@@ -1022,7 +1022,7 @@ const translations = {
     faq_q3: "新規開発で主に使用している技術スタックは何ですか？",
     faq_a3: "信頼性の高いLaravel (PHP)とリレーショナルDB設計をバックエンドに採用し、React.js等をフロントエンドに組み合わせて開発しています。",
     faq_q4: "最も素早く連絡が取れる方法はどれですか？",
-    faq_a4: "公式ビジネスWhatsApp (+62 831-8338-22530) またはメール (zoliandaalmaghribi@gmail.com) より迅速にご返信いたします。",
+    faq_a4: "公式ビジネスWhatsApp (+62 831-8338-2530) またはメール (zoliandaalmaghribi@gmail.com) より迅速にご返信いたします。",
 
     coffee_title: "コーヒーをおごる",
     coffee_desc: "私の制作物や開発への挑戦を応援していただけるなら、一杯のコーヒーのご支援が大きな力になります！ ☕",
@@ -1234,7 +1234,7 @@ if (termInput) {
           response = 'Core Stack: HTML5, CSS3, JavaScript, React.js, Python, Java, PHP, Laravel, MySQL, AI/ML APIs.';
           break;
         case 'contact':
-          response = 'WhatsApp Business: +62 831-8338-22530<br>Email: zoliandaalmaghribi@gmail.com';
+          response = 'WhatsApp Business: +62 831-8338-2530<br>Email: zoliandaalmaghribi@gmail.com';
           break;
         case 'whoami':
           response = 'Zolianda Al Maghribi (Yanda) - Full-Stack Developer based in Tangerang, Indonesia.';
