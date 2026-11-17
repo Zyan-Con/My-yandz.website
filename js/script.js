@@ -1697,3 +1697,188 @@ document.querySelectorAll('a[href$=".html"]').forEach((link) => {
     }, 280); // 280ms: Sangat cepat layaknya single page app
   });
 });
+
+function draw() {
+    // Jika dibuka di HP (< 900px), hentikan render canvas agar tidak panas & lag
+    if (window.innerWidth < 900) return;
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    ctx.fillStyle = isDark ? 'rgba(6, 6, 8, 0.25)' : 'rgba(228, 221, 208, 0.15)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = isDark ? '#00ff66' : '#8a7f68';
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = charArray[Math.floor(Math.random() * charArray.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+
+    // Hanya aktifkan custom cursor jika pengguna memakai Mouse Desktop (Bukan Touchscreen)
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+if (customCursor && !isTouchDevice && window.innerWidth > 900) {
+  document.addEventListener('mousemove', (e) => {
+    customCursor.style.left = e.clientX + 'px';
+    customCursor.style.top = e.clientY + 'px';
+  });
+
+  document.querySelectorAll('a, button').forEach((el) => {
+    el.addEventListener('mouseenter', () => customCursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => customCursor.classList.remove('hover'));
+  });
+} else if (customCursor) {
+  customCursor.style.display = 'none';
+}
+  }
+
+  // Shortcut Ctrl + K untuk membuka Command Palette
+window.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault();
+    toggleCmdPalette();
+  }
+  if (e.key === 'Escape') {
+    const palette = document.getElementById('cmdPalette');
+    if (palette && palette.style.display !== 'none') toggleCmdPalette();
+  }
+});
+
+function toggleCmdPalette() {
+  const p = document.getElementById('cmdPalette');
+  if (!p) return;
+  const isHidden = p.style.display === 'none';
+  p.style.display = isHidden ? 'flex' : 'none';
+  if (isHidden) {
+    setTimeout(() => document.getElementById('cmdInput')?.focus(), 50);
+  }
+}
+
+// ============================================
+// FIX PENCARIAN COMMAND PALETTE (LIVE SEARCH)
+// ============================================
+window.filterCmd = function(val) {
+  const query = (val || '').trim().toLowerCase();
+  const list = document.getElementById('cmdList');
+  if (!list) return;
+
+  const items = list.querySelectorAll('.cmd-item');
+  let visibleCount = 0;
+
+  items.forEach((item) => {
+    // Cari kecocokan di judul, ikon, atau tag shortcut
+    const text = item.innerText.toLowerCase();
+    if (text.includes(query)) {
+      item.style.setProperty('display', 'flex', 'important');
+      visibleCount++;
+    } else {
+      item.style.setProperty('display', 'none', 'important');
+    }
+  });
+
+  // Tampilkan pesan jika tidak ada hasil yang cocok
+  let emptyMsg = document.getElementById('cmdEmptyMsg');
+  if (visibleCount === 0) {
+    if (!emptyMsg) {
+      emptyMsg = document.createElement('div');
+      emptyMsg.id = 'cmdEmptyMsg';
+      emptyMsg.className = 'cmd-empty-state';
+      list.appendChild(emptyMsg);
+    }
+    emptyMsg.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i> Perintah "<strong>${val}</strong>" tidak ditemukan`;
+    emptyMsg.style.display = 'flex';
+  } else if (emptyMsg) {
+    emptyMsg.style.display = 'none';
+  }
+};
+
+// Reset pencarian saat palette dibuka kembali
+window.toggleCmdPalette = function() {
+  const p = document.getElementById('cmdPalette');
+  if (!p) return;
+  const isHidden = p.style.display === 'none' || p.style.display === '';
+  p.style.display = isHidden ? 'flex' : 'none';
+
+  if (isHidden) {
+    const input = document.getElementById('cmdInput');
+    if (input) {
+      input.value = '';
+      window.filterCmd(''); // Tampilkan semua item kembali
+      setTimeout(() => input.focus(), 60);
+    }
+  }
+};
+
+// ============================================
+// DOWNLOAD VCARD (.VCF) DENGAN NOTIFIKASI
+// ============================================
+window.downloadVCard = function() {
+  const vcard = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'FN:Zolianda Al Maghribi (Yanda)',
+    'N:Al Maghribi;Zolianda;;;',
+    'TITLE:Full-Stack Developer & AI Explorer',
+    'TEL;TYPE=CELL,VOICE:+62831833822530',
+    'EMAIL;TYPE=WORK,INTERNET:zoliandaalmaghribi@gmail.com',
+    'URL:https://yandz.id',
+    'NOTE:Full-Stack Developer (Laravel, React, Python) based in Tangerang, Indonesia.',
+    'END:VCARD'
+  ].join('\r\n');
+
+  const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.setAttribute('download', 'Yanda_Contact.vcf');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+
+  // Tampilkan notifikasi pop-up kecil agar pengguna PC paham
+  showVCardToast();
+};
+
+function showVCardToast() {
+  let toast = document.getElementById('vcardToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'vcardToast';
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%) translateY(30px);
+      background: #181920;
+      color: #fff;
+      border: 1px solid #22c55e;
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 9999999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    `;
+    document.body.appendChild(toast);
+  }
+
+  toast.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #22c55e;"></i> File kontak berhasil diunduh (.vcf)! Buka di ponsel untuk menyimpan otomatis.';
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(30px)';
+  }, 4000);
+}

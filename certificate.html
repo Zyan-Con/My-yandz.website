@@ -85,12 +85,34 @@
     </header>
 
     <!-- SIDE MENU MOBILE -->
-    <nav id="sideMenu">
+     <nav id="sideMenu">
         <a href="index.html" class="magnetic" data-i18n="nav_home"><span class="menu-num">01</span> Home</a>
         <a href="about.html" class="magnetic" data-i18n="nav_about"><span class="menu-num">02</span> About</a>
         <a href="projects.html" class="magnetic" data-i18n="nav_projects"><span class="menu-num">03</span> Projects</a>
-        <a href="certificate.html" class="magnetic active" data-i18n="nav_cert"><span class="menu-num">04</span> Certificate</a>
+        <a href="certificate.html" class="magnetic" data-i18n="nav_cert"><span class="menu-num">04</span> Certificate</a>
         <a href="contact.html" class="magnetic" data-i18n="nav_contact"><span class="menu-num">05</span> Contact</a>
+        
+        <div class="icon-toolbar">
+            <button class="sound-toggle" onclick="toggleSound()" id="soundToggle" aria-label="Toggle sound"><i class="fa-solid fa-volume-xmark"></i></button>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        </div>
+        
+        <div class="lang-switcher">
+            <button onclick="setLanguage('id')" class="lang-btn" data-lang="id">ID</button>
+            <button onclick="setLanguage('en')" class="lang-btn" data-lang="en">EN</button>
+            <button onclick="setLanguage('ja')" class="lang-btn" data-lang="ja">日本語</button>
+        </div>
+        
+        <div class="menu-footer-info">
+            <div class="menu-socials">
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/Zyan-Con" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <span>zoliandaalmaghribi@gmail.com</span>
+            <span>+62 831-8338-2530</span>
+        </div>
     </nav>
     <div id="overlay" onclick="toggleMenu()"></div>
 

@@ -8007,3 +8007,797 @@ html[data-theme="dark"] .contact-submit-btn {
   box-shadow: 0 0 8px #38bdf8;
   animation: pulse 1.2s infinite;
 }
+
+/* ===================================================
+   PERBAIKAN PERFORMANCE & FIX BUG HP (OVERFLOW & LAG)
+=================================================== */
+
+/* 1. Kunci Mutlak: Layar Tidak Boleh Bisa Digeser ke Samping */
+html, body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+/* 2. Ringankan Beban GPU di Layar HP (Matikan Blur Berat) */
+@media (max-width: 900px) {
+  .ambient-morph-container,
+  .clean-parallax-backdrop {
+    display: none !important; /* Matikan background animasi berat di HP agar 60 FPS lancar */
+  }
+
+  .glow-spot {
+    display: none !important; /* Di HP tidak ada kursor mouse, matikan spotlight */
+  }
+
+  .custom-cursor,
+  .cursor-trail {
+    display: none !important;
+  }
+}
+
+/* 3. FIX BUG ABOUT.HTML DI HP: STIKER TIDAK BOLEH MENJEBOL LAYAR */
+@media (max-width: 768px) {
+  .editorial-container {
+    padding: 0 16px !important;
+    margin-top: 80px !important;
+    overflow-x: hidden !important;
+  }
+
+  .ed-photo-composition {
+    max-width: 100% !important;
+    margin: 0 auto 40px !important;
+  }
+
+  /* Kunci stiker agar tetap di dalam layar HP */
+  .ed-sticker-top {
+    left: 8px !important;
+    top: 8px !important;
+    font-size: 0.95rem !important;
+    padding: 6px 14px !important;
+    transform: rotate(-3deg) !important;
+  }
+
+  .ed-sticker-bottom {
+    right: 8px !important;
+    bottom: 8px !important;
+    font-size: 0.95rem !important;
+    padding: 6px 16px !important;
+    transform: rotate(4deg) !important;
+  }
+
+  .ed-doodle-arrow {
+    display: none !important; /* Sembunyikan panah SVG di HP agar tidak menabrak foto */
+  }
+
+  /* 4. FIX BLOK KODINGAN VS CODE AGAR TIDAK MENDORONG LEBAR LAYAR */
+  .ide-window {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .ide-code-content {
+    padding: 14px !important;
+    font-size: 0.76rem !important;
+    overflow-x: auto !important; /* Scroll hanya di dalam kotak kode */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ide-code-content pre {
+    white-space: pre !important;
+    word-break: normal !important;
+  }
+
+  /* 5. Susunan Bento & Galeri Jadi 1 Kolom Vertikal di HP */
+  .ed-asterisk-grid,
+  .ed-services-grid,
+  .ed-stats-grid,
+  .polaroid-grid,
+  .passions-grid,
+  .opinions-bento-grid,
+  .dojo-specs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .polaroid-card {
+    transform: none !important; /* Matikan rotasi miring kartu di HP agar pas di tengah */
+  }
+
+  .ed-connect-frame {
+    padding: 30px 16px !important;
+  }
+
+  .ed-connect-links {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+}
+
+/* ===================================================
+   FIX TOTAL RESPONSIVE MOBILE (ABOUT, DOCK & FOOTER)
+=================================================== */
+
+/* 1. FIX HEADER & FOTO ABOUT DI LAYAR HP */
+@media (max-width: 768px) {
+  /* Beri jarak aman dari header tetap */
+  .editorial-container {
+    margin-top: 75px !important;
+    padding: 0 16px 120px !important; /* Ruang bawah 120px agar tidak tertutup dock */
+    overflow-x: hidden !important;
+  }
+
+  .ed-tag-top-wrap {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 18px;
+    padding: 0 10px;
+  }
+
+  .ed-tag-top {
+    font-size: 0.68rem !important;
+    letter-spacing: 1px !important;
+    display: inline-block;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  /* Ukuran foto proporsional di HP (tidak boleh terlalu tinggi) */
+  .ed-photo-composition {
+    max-width: 290px !important;
+    margin: 0 auto 35px !important;
+    position: relative;
+  }
+
+  .ed-photo-frame {
+    width: 100% !important;
+    max-height: 360px !important; /* Batas tinggi foto di HP */
+    aspect-ratio: 3 / 4 !important;
+    box-shadow: 5px 5px 0px #111111 !important;
+  }
+
+  .ed-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  /* Stiker tetap menempel rapi di sudut foto tanpa menjebol layar */
+  .ed-sticker-top {
+    top: -10px !important;
+    left: -8px !important;
+    font-size: 0.85rem !important;
+    padding: 6px 14px !important;
+    transform: rotate(-4deg) !important;
+  }
+
+  .ed-sticker-bottom {
+    bottom: -10px !important;
+    right: -8px !important;
+    font-size: 0.85rem !important;
+    padding: 6px 14px !important;
+    transform: rotate(5deg) !important;
+  }
+}
+
+/* 2. FIX TOMBOL DOCK & TOMBOL CHATBERTUMPUK DI HP */
+@media (max-width: 900px) {
+  /* Dock Mengambang di Bawah */
+  .mobile-bottom-dock {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 14px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: rgba(20, 20, 26, 0.92) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 40px !important;
+    padding: 8px 20px !important;
+    gap: 24px !important;
+    z-index: 9999 !important; /* Paling depan */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .dock-item {
+    color: #9ca3af !important;
+  }
+
+  .dock-item.active,
+  .dock-item:hover {
+    color: var(--accent-orange, #e8734a) !important;
+  }
+
+  /* Naikkan tombol chat agar BERADA DI ATAS DOCK dan tidak tumpang tindih */
+  .chat-widget {
+    bottom: 85px !important; /* Berjarak aman di atas dock */
+    right: 16px !important;
+    z-index: 9998 !important;
+  }
+
+  .chat-toggle {
+    width: 46px !important;
+    height: 46px !important;
+    font-size: 18px !important;
+    box-shadow: 0 6px 20px rgba(232, 115, 74, 0.4) !important;
+  }
+
+  .chat-box {
+    bottom: 60px !important;
+    right: 0 !important;
+    width: min(340px, 92vw) !important;
+  }
+
+  /* Tombol panah atas digeser ke kiri agar tidak menabrak */
+  .back-to-top {
+    bottom: 85px !important;
+    left: 16px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .floating-wa-btn {
+    display: none !important; /* Sudah ada tombol Chat di dock */
+  }
+}
+
+/* 3. PERBAIKAN FOOTER KHUSUS HP (AESTHETIC BENTO STYLE) */
+@media (max-width: 768px) {
+  .avo-footer {
+    padding: 50px 16px 120px !important; /* Ruang bawah ekstra agar tidak tertutup dock */
+    text-align: left !important;
+  }
+
+  /* Banner CTA Atas di HP */
+  .avo-cta-banner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 25px !important;
+    padding-bottom: 35px !important;
+    margin-bottom: 40px !important;
+  }
+
+  .avo-cta-title {
+    font-size: 1.6rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .avo-cta-subtext {
+    font-size: 0.88rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  .avo-input-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Kartu Status Responsif di HP */
+  .avo-direct-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 20px !important;
+    border-radius: 16px !important;
+  }
+
+  /* KOLOM FOOTER DIUBAH JADI KARTU RAPI DI HP */
+  .avo-columns-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding-bottom: 35px !important;
+  }
+
+  /* Setiap seksi footer di HP dibungkus kartu rapi */
+  .avo-col {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 14px !important;
+    padding: 20px !important;
+  }
+
+  .avo-brand-logo {
+    font-size: 1.4rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .avo-brand-desc {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .avo-col-heading {
+    font-size: 0.82rem !important;
+    letter-spacing: 1.5px !important;
+    color: var(--accent-orange, #e8734a) !important;
+    margin-bottom: 14px !important;
+    text-transform: uppercase;
+  }
+
+  /* Navigasi Footer dibuat 2 kolom grid di HP agar hemat ruang */
+  .avo-links-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .avo-links-list li {
+    margin-bottom: 0 !important;
+    font-size: 0.85rem !important;
+  }
+
+  .avo-col-chat .avo-contact-text {
+    font-size: 0.85rem !important;
+    word-break: break-all !important;
+  }
+
+  .avo-social-icons {
+    display: flex !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    margin-top: 14px !important;
+  }
+
+  /* Baris Copyright Bawah */
+  .avo-bottom-bar {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 8px !important;
+    padding-top: 20px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .avo-bottom-meta {
+    justify-content: center !important;
+  }
+}
+
+/* ===================================================
+   FIX TOTAL RESPONSIVE MOBILE ABOUT (ANTI TERPOTONG)
+=================================================== */
+@media (max-width: 768px) {
+  /* 1. Kunci kontainer utama agar pas di layar HP */
+  .about-editorial-body {
+    overflow-x: hidden !important;
+  }
+
+  .editorial-container {
+    margin-top: 85px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 140px !important; /* Ruang lega agar tidak tertutup dock & chat */
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  /* 2. Fix Teks Tag Atas agar Turun Baris (Tidak Terpotong) */
+  .ed-tag-top-wrap {
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 24px !important;
+  }
+
+  .ed-tag-top {
+    font-size: 0.65rem !important;
+    letter-spacing: 1.5px !important;
+    line-height: 1.6 !important;
+    white-space: normal !important; /* Biarkan teks membungkus ke bawah jika layar sempit */
+    text-align: center !important;
+    display: inline-block !important;
+    padding: 0 5px !important;
+  }
+
+  /* 3. Komposisi Foto & Stiker Rapi di Tengah */
+  .ed-photo-composition {
+    max-width: 270px !important; /* Ukuran pas untuk layar HP 320px - 390px */
+    margin: 0 auto 40px !important;
+    position: relative !important;
+  }
+
+  .ed-photo-frame {
+    width: 100% !important;
+    max-height: 340px !important;
+    aspect-ratio: 3 / 4 !important;
+    box-shadow: 4px 4px 0px #111111 !important;
+    overflow: hidden !important;
+  }
+
+  /* Kunci stiker agar masuk ke dalam frame foto dan tidak menembus layar */
+  .ed-sticker-top {
+    top: 10px !important;
+    left: 8px !important;
+    font-size: 0.8rem !important;
+    padding: 4px 10px !important;
+    transform: rotate(-3deg) !important;
+    box-shadow: 2px 2px 0px #111111 !important;
+  }
+
+  .ed-sticker-bottom {
+    bottom: 12px !important;
+    right: 8px !important;
+    font-size: 0.8rem !important;
+    padding: 4px 10px !important;
+    transform: rotate(4deg) !important;
+    box-shadow: 2px 2px 0px #111111 !important;
+  }
+
+  /* 4. Fix Teks Paragraf & Stiker Heading */
+  .ed-sticker-heading {
+    font-size: 0.95rem !important;
+    padding: 6px 14px !important;
+    margin-bottom: 16px !important;
+    box-shadow: 3px 3px 0px #111111 !important;
+  }
+
+  .ed-lead-text {
+    font-size: 0.88rem !important;
+    line-height: 1.7 !important;
+    word-break: break-word !important; /* Cegah teks jebol keluar border */
+    overflow-wrap: break-word !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* 5. Asterisk Highlights (Peran Industri & Prinsip) */
+  .ed-asterisk-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    padding-top: 20px !important;
+  }
+
+  .ed-asterisk-item {
+    gap: 10px !important;
+  }
+
+  .ed-asterisk-item h4 {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .ed-asterisk-item p {
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    word-break: break-word !important;
+  }
+
+  /* 6. Layout Dock Bawah & Tombol Chat Agar Pas */
+  .mobile-bottom-dock {
+    bottom: 14px !important;
+    padding: 6px 16px !important;
+    gap: 20px !important;
+    z-index: 9999 !important;
+  }
+
+  .chat-widget {
+    bottom: 80px !important; /* Naikkan tepat di atas dock */
+    right: 16px !important;
+    z-index: 9998 !important;
+  }
+}
+
+/* ===================================================
+   FIX FINAL: DOCK BOTTOM TERKUNCI PERSIS DI BAWAH HP
+=================================================== */
+
+/* Desktop: Sembunyikan Dock */
+.mobile-bottom-dock {
+  display: none !important;
+}
+
+/* Khusus Layar HP (< 900px) */
+@media (max-width: 900px) {
+  /* Kunci halaman agar tidak goyang ke kanan */
+  html, body {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  body.about-editorial-body {
+    padding-bottom: 90px !important; /* Ruang lega agar footer tidak tertutup dock */
+  }
+
+  /* KUNCI DOCK DI BAWAH MONITOR HP */
+  .mobile-bottom-dock {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    min-width: 280px !important;
+    background: #181920 !important; /* Solid dark elegan */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 40px !important;
+    padding: 8px 24px !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 20px !important;
+    z-index: 999999 !important; /* Harus di atas semua elemen */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .dock-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 3px !important;
+    font-size: 0.7rem !important;
+    font-family: var(--font-mono, monospace) !important;
+    font-weight: 700 !important;
+    color: #94a3b8 !important;
+    text-decoration: none !important;
+  }
+
+  .dock-item i {
+    font-size: 1.15rem !important;
+  }
+
+  .dock-item.active {
+    color: var(--accent-orange, #e8734a) !important;
+  }
+
+  .dock-item.wa-highlight {
+    color: #22c55e !important;
+  }
+
+  /* Posisi Tombol Chatbot di HP (Tepat di atas Dock) */
+  .chat-widget {
+    bottom: 75px !important;
+    right: 14px !important;
+    z-index: 99999 !important;
+  }
+
+  .chat-toggle {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 18px !important;
+  }
+
+  .chat-box {
+    bottom: 55px !important;
+    right: 0 !important;
+    width: min(320px, 92vw) !important;
+  }
+
+  .back-to-top {
+    bottom: 75px !important;
+    left: 14px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+/* ===================================================
+   COMMAND PALETTE (CTRL + K) & LIGHTHOUSE BADGE STYLING
+=================================================== */
+.cmd-shortcut-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-dark, #111);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+html[data-theme="dark"] .cmd-shortcut-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f0f0f0;
+}
+
+.cmd-shortcut-btn:hover {
+  background: var(--accent-orange, #e8734a);
+  color: #fff;
+  border-color: var(--accent-orange, #e8734a);
+}
+
+.cmd-shortcut-btn kbd {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+}
+
+html[data-theme="dark"] .cmd-shortcut-btn kbd {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Modal Window Command Palette */
+.cmd-palette-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 14vh;
+}
+
+.cmd-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 9, 12, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.cmd-window {
+  position: relative;
+  z-index: 2;
+  width: min(620px, 92vw);
+  background: #14151b;
+  border: 1.5px solid #2b2d3a;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  animation: modalPop 0.2s ease;
+}
+
+.cmd-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #242632;
+}
+
+.cmd-header i {
+  color: var(--accent-orange, #e8734a);
+  font-size: 1.1rem;
+}
+
+.cmd-header input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.cmd-header kbd {
+  background: #232530;
+  color: #8c8ea0;
+  border: 1px solid #36394a;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+}
+
+.cmd-list {
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cmd-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: #cfd2df;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 0.88rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cmd-item i {
+  color: var(--accent-orange, #e8734a);
+  font-size: 1.05rem;
+  width: 20px;
+  text-align: center;
+}
+
+.cmd-item span {
+  flex: 1;
+}
+
+.cmd-item small {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: #6a6d7e;
+}
+
+.cmd-item:hover {
+  background: #20222b;
+  color: #ffffff;
+}
+
+/* Lencana Lighthouse di Footer */
+.lighthouse-badge-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #22c55e;
+  margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+  .cmd-shortcut-btn {
+    display: none !important; /* Di HP gunakan menu dock */
+  }
+}
+
+/* ===================================================
+   FIX SCROLLBAR GELAP & EMPTY STATE COMMAND PALETTE
+=================================================== */
+.cmd-list {
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* Hilangkan scrollbar putih bawaan Windows */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.cmd-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cmd-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cmd-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.cmd-list::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-orange, #e8734a);
+}
+
+/* Tampilan Saat Pencarian Tidak Ditemukan */
+.cmd-empty-state {
+  padding: 30px 20px;
+  text-align: center;
+  color: #8c8ea0;
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cmd-empty-state i {
+  font-size: 1.6rem;
+  color: #4b4e60;
+}
+
+.cmd-empty-state strong {
+  color: var(--accent-orange, #e8734a);
+}

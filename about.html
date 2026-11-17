@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About - Yandz.id</title>
     <!-- Stylesheets Modular -->
     <link href="css/style.css" rel="stylesheet">
@@ -14,38 +14,28 @@
 </head>
 
 <body class="about-editorial-body">
-    <!-- PROGRESS & PAGE TRANSITION -->
-    <!-- ===================================================
-         AESTHETIC CYBER-APERTURE PRELOADER
-    =================================================== -->
+    <!-- PRELOADER CYBER APERTURE -->
     <div class="cyber-preloader" id="cyberPreloader" aria-hidden="true">
-        <!-- Tirai Atas & Bawah yang Membelah Terbuka -->
         <div class="shutter-panel panel-top"></div>
         <div class="shutter-panel panel-bottom"></div>
-
-        <!-- Panggung Visual di Tengah -->
         <div class="preloader-stage">
-            <!-- Lingkaran Geometris Berputar -->
             <div class="preloader-ring-wrap">
                 <div class="ring-outer-dashed"></div>
                 <div class="ring-inner-glow"></div>
                 <span class="preloader-symbol">Y</span>
             </div>
-
-            <!-- Angka Counter & Brand Monospace -->
             <div class="preloader-info-row">
                 <span class="preloader-brand">YANDZ.ID</span>
                 <span class="preloader-sep">•</span>
                 <span class="preloader-counter" id="preloaderCounter">000</span>
             </div>
-
-            <!-- Status Teks Mengetik -->
             <div class="preloader-status-row">
                 <span class="pulse-dot-cyan"></span>
                 <span id="preloaderStatusText">INITIALIZING RUNTIME</span>
             </div>
         </div>
     </div>
+
     <div class="scroll-progress"></div>
     <div class="custom-cursor"></div>
 
@@ -84,13 +74,34 @@
         </div>
     </header>
 
-    <!-- SIDE MENU MOBILE -->
     <nav id="sideMenu">
         <a href="index.html" class="magnetic" data-i18n="nav_home"><span class="menu-num">01</span> Home</a>
-        <a href="about.html" class="magnetic active" data-i18n="nav_about"><span class="menu-num">02</span> About</a>
+        <a href="about.html" class="magnetic" data-i18n="nav_about"><span class="menu-num">02</span> About</a>
         <a href="projects.html" class="magnetic" data-i18n="nav_projects"><span class="menu-num">03</span> Projects</a>
         <a href="certificate.html" class="magnetic" data-i18n="nav_cert"><span class="menu-num">04</span> Certificate</a>
         <a href="contact.html" class="magnetic" data-i18n="nav_contact"><span class="menu-num">05</span> Contact</a>
+        
+        <div class="icon-toolbar">
+            <button class="sound-toggle" onclick="toggleSound()" id="soundToggle" aria-label="Toggle sound"><i class="fa-solid fa-volume-xmark"></i></button>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        </div>
+        
+        <div class="lang-switcher">
+            <button onclick="setLanguage('id')" class="lang-btn" data-lang="id">ID</button>
+            <button onclick="setLanguage('en')" class="lang-btn" data-lang="en">EN</button>
+            <button onclick="setLanguage('ja')" class="lang-btn" data-lang="ja">日本語</button>
+        </div>
+        
+        <div class="menu-footer-info">
+            <div class="menu-socials">
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/Zyan-Con" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <span>zoliandaalmaghribi@gmail.com</span>
+            <span>+62 831-8338-2530</span>
+        </div>
     </nav>
     <div id="overlay" onclick="toggleMenu()"></div>
 
@@ -99,23 +110,17 @@
         
         <!-- 01. HERO SCRAPBOOK BANNER -->
         <section class="editorial-hero run-item">
-            <div class="ed-tag-top" data-i18n="about_hero_tag">FULL-STACK SPECIALIST • ARCH LINUX USER • AI EXPLORER ⚡</div>
+            <div class="ed-tag-top-wrap">
+                <span class="ed-tag-top" data-i18n="about_hero_tag">FULL-STACK SPECIALIST • ARCH LINUX • AI EXPLORER ⚡</span>
+            </div>
             
             <div class="ed-photo-composition">
                 <div class="ed-sticker ed-sticker-top">
                     <span>☺</span> YANDA
                 </div>
-                <div class="ed-doodle-arrow">
-                    <svg width="60" height="40" viewBox="0 0 60 40" fill="none">
-                        <path d="M10 30 C 25 5, 45 35, 55 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-                        <path d="M48 8 L 56 10 L 54 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-
                 <div class="ed-photo-frame">
-                    <img src="images/d964a003-57a1-433e-8fc8-07445910c7f5.jpeg" alt="Zolianda Al Maghribi">
+                    <img src="images/WhatsApp Image 2026-07-30 at 14.21.21.jpeg" alt="Zolianda Al Maghribi">
                 </div>
-
                 <div class="ed-sticker ed-sticker-bottom">
                     AL MAGHRIBI
                 </div>
@@ -138,7 +143,7 @@
                         <span class="ed-asterisk">✱</span>
                         <div>
                             <h4 data-i18n="about_ast1_title">CURRENT INDUSTRY ROLE</h4>
-                            <p data-i18n="about_ast1_desc">Sedang menjalani dan belajar lebih jauh <strong>Tentang Dunia Tekhnologi</strong> 🦅, menangani arsitektur database relasional, API RESTful, dan modul backend PHP/Laravel.</p>
+                            <p data-i18n="about_ast1_desc">Alumni magang di <strong>PT Garuda Cyber Indonesia</strong> 🦅, menangani arsitektur database relasional, API RESTful, dan modul backend PHP/Laravel.</p>
                         </div>
                     </div>
                     <div class="ed-asterisk-item">
@@ -279,12 +284,12 @@
                 <div class="polaroid-card tilt-left">
                     <div class="washi-tape-sticker">PT GARUDA CYBER</div>
                     <div class="polaroid-img-box">
-                        <img src="images/WhatsApp Image 2026-10-18 at 14.43.38.jpeg" alt="Magang PT Garuda Cyber">
+                        <img src="images/WhatsApp Image 2026-07-30 at 14.21.21.jpeg" alt="Magang PT Garuda Cyber">
                     </div>
                     <div class="polaroid-caption">
                         <h4 data-i18n="about_pol1_title">🏢 Garuda Cyber Indonesia HQ</h4>
                         <p data-i18n="about_pol1_desc">Mengembangkan arsitektur backend Laravel & modul web enterprise bersama tim engineering.</p>
-                        <span class="polaroid-tag">#InternshipEvidence </span>
+                        <span class="polaroid-tag">#InternshipEvidence</span>
                     </div>
                 </div>
 
@@ -296,7 +301,7 @@
                     <div class="polaroid-caption">
                         <h4 data-i18n="about_pol2_title">🏆 Duta Inspirasi Indonesia</h4>
                         <p data-i18n="about_pol2_desc">Penghargaan nasional atas kontribusi pemuda inspiratif & kepemimpinan digital.</p>
-                        <span class="polaroid-tag">#NationalAward </span>
+                        <span class="polaroid-tag">#NationalAward</span>
                     </div>
                 </div>
 
@@ -308,7 +313,7 @@
                     <div class="polaroid-caption">
                         <h4 data-i18n="about_pol3_title">🐍 CS50P Python Programming</h4>
                         <p data-i18n="about_pol3_desc">Kurikulum ilmu komputer ketat dari Harvard University dengan pemecahan masalah algoritma nyata.</p>
-                        <span class="polaroid-tag">#HarvardCS50P </span>
+                        <span class="polaroid-tag">#HarvardCS50P</span>
                     </div>
                 </div>
             </div>
@@ -504,7 +509,6 @@
 
                 <div class="cert-slider-container">
                     <div class="cert-slider-track" id="certSliderTrack">
-                        <!-- Card 1 -->
                         <div class="cert-sticker-card" onclick="openCertModal('images/certificate/image.png','Introduction to CSS')">
                             <div class="cert-tape"></div>
                             <div class="cert-thumb-box">
@@ -517,7 +521,6 @@
                             </div>
                         </div>
 
-                        <!-- Card 2 -->
                         <div class="cert-sticker-card" onclick="openCertModal('images/certificate/harvard.jpeg','CS50P: Programming with Python')">
                             <div class="cert-tape"></div>
                             <div class="cert-thumb-box">
@@ -530,7 +533,6 @@
                             </div>
                         </div>
 
-                        <!-- Card 3 -->
                         <div class="cert-sticker-card" onclick="openCertModal('images/certificate/duta-inspirasi.jpeg','Duta Inspirasi Indonesia')">
                             <div class="cert-tape"></div>
                             <div class="cert-thumb-box">
@@ -555,7 +557,7 @@
                 </div>
                 <div class="ed-connect-links">
                     <a href="mailto:zoliandaalmaghribi@gmail.com"><i class="fa-solid fa-envelope"></i> zoliandaalmaghribi@gmail.com</a>
-                    <a href="https://wa.me/6283183382530" target="_blank"><i class="fa-brands fa-whatsapp"></i> +62 831-8338-2530</a>
+                    <a href="https://wa.me/62831833822530" target="_blank"><i class="fa-brands fa-whatsapp"></i> +62 831-8338-22530</a>
                     <span><i class="fa-solid fa-location-dot"></i> Tangerang, Indonesia</span>
                 </div>
             </div>
@@ -573,22 +575,16 @@
         </div>
     </div>
 
-    <!-- ===================================================
-         FINAL UNIVERSAL FOOTER (AVO SAAS STYLE)
-         (Gunakan di: index, about, projects, certificate, contact)
-    =================================================== -->
+    <!-- UNIVERSAL AVO FOOTER -->
     <footer class="avo-footer">
         <div class="avo-container">
 
-            <!-- 1. UPPER CTA BANNER: DIRECT DEV CONNECT -->
             <div class="avo-cta-banner">
-                <!-- Sisi Kiri: Teks & Form Cepat -->
                 <div class="avo-cta-left">
                     <span class="avo-sub-tag" data-i18n="avo_sub_tag">START A PROJECT • FAST & TRANSPARENT PROCESS</span>
                     <h2 class="avo-cta-title" data-i18n="avo_cta_title">Start building with Yanda today.</h2>
                     <p class="avo-cta-subtext" data-i18n="avo_cta_subtext">Punya ide aplikasi, butuh backend Laravel yang kokoh, atau integrasi AI? Mari diskusikan solusinya bersama.</p>
                     
-                    <!-- Direct Message / Idea Input -->
                     <form class="avo-input-wrap" onsubmit="handleAvoContact(event)">
                         <input type="text" id="avoQuickInput" placeholder="Ketik pesan singkat atau ide proyek kamu..." required>
                         <button type="submit" aria-label="Send direct message">
@@ -597,7 +593,6 @@
                     </form>
                 </div>
 
-                <!-- Sisi Kanan: Kartu Kesiapan Kerja (Pengganti Gambar/Animasi) -->
                 <div class="avo-direct-card">
                     <div class="direct-card-header">
                         <span class="direct-live-pill"><span class="dot-online"></span> <span data-i18n="direct_live_status">OPEN TO WORK</span></span>
@@ -619,7 +614,7 @@
                         </div>
                     </div>
 
-                    <a href="https://wa.me/6283183382530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." target="_blank" class="direct-wa-action">
+                    <a href="https://wa.me/62831833822530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." target="_blank" class="direct-wa-action">
                         <i class="fa-brands fa-whatsapp"></i>
                         <span data-i18n="direct_btn_wa">Chat via WhatsApp Langsung</span>
                         <i class="fa-solid fa-arrow-right"></i>
@@ -627,10 +622,7 @@
                 </div>
             </div>
 
-            <!-- 2. FOUR CLEAN COLUMNS -->
             <div class="avo-columns-grid">
-                
-                <!-- Col 1: Brand & Bio -->
                 <div class="avo-col avo-col-brand">
                     <a href="index.html" class="avo-brand-logo">Yandz<span>.id</span></a>
                     <p class="avo-brand-desc" data-i18n="footer_tagline">
@@ -638,7 +630,6 @@
                     </p>
                 </div>
 
-                <!-- Col 2: Navigation Links -->
                 <div class="avo-col">
                     <h4 class="avo-col-heading" data-i18n="footer_nav_title">Navigation</h4>
                     <ul class="avo-links-list">
@@ -650,7 +641,6 @@
                     </ul>
                 </div>
 
-                <!-- Col 3: Status & Ecosystem -->
                 <div class="avo-col">
                     <h4 class="avo-col-heading">Status & Stack</h4>
                     <ul class="avo-links-list">
@@ -661,24 +651,21 @@
                     </ul>
                 </div>
 
-                <!-- Col 4: Let's chat! & Social Icons -->
                 <div class="avo-col avo-col-chat">
                     <h4 class="avo-col-heading" data-i18n="footer_contact_title">Let's chat!</h4>
                     <a href="mailto:zoliandaalmaghribi@gmail.com" class="avo-contact-text">zoliandaalmaghribi@gmail.com</a>
-                    <a href="https://wa.me/6283183382530" target="_blank" class="avo-contact-text">+62 831-8338-2530</a>
+                    <a href="https://wa.me/62831833822530" target="_blank" class="avo-contact-text">+62 831-8338-22530</a>
 
                     <div class="avo-social-icons">
                         <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                         <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://github.com/Zyan-Con" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                         <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://wa.me/6283183382530" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://wa.me/62831833822530" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
-
             </div>
 
-            <!-- 3. BOTTOM COPYRIGHT STRIP -->
             <div class="avo-bottom-bar">
                 <p>&copy; 2026 <strong>Yandz.id</strong> (Zolianda Al Maghribi). All rights reserved.</p>
                 <div class="avo-bottom-meta">
@@ -691,7 +678,7 @@
         </div>
     </footer>
 
-    <!-- MOBILE BOTTOM DOCK -->
+    <!-- MOBILE BOTTOM DOCK (LANGSUNG DI DALAM BODY) -->
     <nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
         <a href="index.html" class="dock-item">
             <i class="fa-solid fa-house"></i>
@@ -705,26 +692,17 @@
             <i class="fa-solid fa-briefcase"></i>
             <span>Projects</span>
         </a>
-        <a href="https://wa.me/6283183382530" target="_blank" class="dock-item wa-highlight">
+        <a href="https://wa.me/62831833822530" target="_blank" class="dock-item wa-highlight">
             <i class="fa-brands fa-whatsapp"></i>
             <span>Chat</span>
         </a>
     </nav>
 
-    <!-- FLOATING ACTIONS -->
+    <!-- FLOATING ACTIONS & CHATBOT -->
     <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
     
-    <a href="https://wa.me/6283183382530?text=Halo%20Yanda,%20saya%20tertarik%20bekerja%20sama%20dengan%20kamu." 
-       target="_blank" 
-       class="floating-wa-btn" 
-       aria-label="Chat WhatsApp Bisnis">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span class="wa-tooltip">Chat WhatsApp Bisnis</span>
-    </a>
-
-    <!-- CHATBOT WIDGET -->
     <div class="chat-widget">
         <button class="chat-toggle" onclick="toggleChat()" aria-label="Open chat"><i class="fa-solid fa-comment-dots"></i></button>
         <div class="chat-box" id="chatBox">
